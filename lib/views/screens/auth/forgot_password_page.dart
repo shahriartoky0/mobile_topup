@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/utilities/app_colors.dart';
 import 'package:untitled/utilities/app_strings.dart';
@@ -29,7 +28,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
+          padding: EdgeInsets.symmetric(vertical: 12 , horizontal: 16 ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,21 +37,21 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 AppString.forgotPassword.tr,
                 style: Theme.of(context).textTheme.displayLarge,
               ),
-              SizedBox(height: 14.h),
+              SizedBox(height: 14 ),
               Text(
                 AppString.pleaseEnterYourEmailAddressToResetPassword.tr,
                 style: Theme.of(
                   context,
-                ).textTheme.displayMedium!.copyWith(fontSize: 13.sp),
+                ).textTheme.displayMedium!.copyWith(fontSize: 13 ),
                 textAlign: TextAlign.start,
               ),
 
-              SizedBox(height: 24.h),
+              SizedBox(height: 24 ),
               Text(
                 AppString.yourEmail.tr,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
-              SizedBox(height: 14.h),
+              SizedBox(height: 14 ),
               AppCustomContainerField(
                 containerChild: MyTextFormFieldWithIcon(
                   controller: _forgotPasswordTEController,
@@ -67,7 +66,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 ),
               ),
 
-              SizedBox(height: 32.h),
+              SizedBox(height: 32 ),
 
               SizedBox(
                 width: double.infinity,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+ import 'package:flutter_svg/flutter_svg.dart';
 
 class NetworkSvgImage extends StatelessWidget {
   final String assetName;
@@ -26,8 +25,8 @@ class NetworkSvgImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SvgPicture.asset(
       assetName,
-      width: width.w,  // Responsive width
-      height: height.h, // Responsive height
+      width: width ,  // Responsive width
+      height: height , // Responsive height
       fit: fit,
       colorFilter: color != null
           ? ColorFilter.mode(color!, BlendMode.srcIn)

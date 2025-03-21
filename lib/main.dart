@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:untitled/utilities/app_theme.dart';
-import 'package:untitled/views/screens/auth/forgot_password_page.dart';
-import 'package:untitled/views/screens/auth/sign_in_page.dart';
+ import 'package:untitled/utilities/app_theme.dart';
+ import 'package:untitled/views/screens/auth/sign_in_page.dart';
 
 
 void main() {
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: SignInPage( ),
+      home: SignInPage(),
       theme: AppTheme.defaultThemeData,
       initialBinding: ControllerBinder(),
       debugShowCheckedModeBanner: false,

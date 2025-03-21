@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+ import 'package:get/get.dart';
 import 'package:untitled/utilities/app_colors.dart';
 import 'package:untitled/views/screens/auth/sign_in_page.dart';
 
@@ -40,7 +39,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               CustomAppbar(headingText: ''),
               Container(
-                margin: EdgeInsets.fromLTRB(32, 32, 32, 0).w,
+                margin: EdgeInsets.fromLTRB(32, 32, 32, 0) ,
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -51,19 +50,19 @@ class _SignUpPageState extends State<SignUpPage> {
                         AppString.signUpToYourAccount.tr,
                         style: Theme.of(context).textTheme.displayLarge,
                       ),
-                      SizedBox(height: 14.h),
+                      SizedBox(height: 14 ),
                       Text(
                         AppString.welcomeBackPleaseEnterYourDetails.tr,
                         style: Theme.of(context).textTheme.displayMedium,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height: 32.h),
+                      SizedBox(height: 32 ),
                       Text(
                         AppString.name.tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      SizedBox(height: 14.h),
+                      SizedBox(height: 14 ),
                       AppCustomContainerField(
                         containerChild: MyTextFormFieldWithIcon(
                           formHintText: AppString.firstName.tr,
@@ -77,7 +76,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 16 ),
                       AppCustomContainerField(
                         containerChild: MyTextFormFieldWithIcon(
                           formHintText: AppString.lastName.tr,
@@ -91,17 +90,17 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 16 ),
 
                       /// =================== Date of birth =======>
                       Text(
                         AppString.dateOfBirth.tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      SizedBox(height: 14.h),
+                      SizedBox(height: 14 ),
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.r),
+                          borderRadius: BorderRadius.circular(16 ),
                           border: Border.all(
                             color: AppColors.textFieldBorderColor,
                             width: 1,
@@ -120,12 +119,12 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 16 ),
                       Text(
                         AppString.yourEmail.tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      SizedBox(height: 14.h),
+                      SizedBox(height: 14 ),
 
                       MyTextFormFieldWithIcon(
                         formHintText: AppString.enterYourEmail.tr,
@@ -142,12 +141,12 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                       ),
 
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 16 ),
                       Text(
                         AppString.phoneNumber.tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      SizedBox(height: 14.h),
+                      SizedBox(height: 14 ),
                       AppCustomContainerField(
                         containerChild: MyTextFormFieldWithIcon(
                           formHintText: AppString.phoneNumber.tr,
@@ -162,12 +161,12 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 16 ),
                       Text(
                         AppString.password.tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      SizedBox(height: 14.h),
+                      SizedBox(height: 14 ),
                       AppCustomContainerField(
                         containerChild: MyTextFormFieldWithIcon(
                           isPassword: true,
@@ -185,12 +184,12 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 16 ),
                       Text(
                         AppString.confirmPassword.tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 16 ),
                       AppCustomContainerField(
                         containerChild: MyTextFormFieldWithIcon(
                           isPassword: true,
@@ -208,7 +207,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                       ),
-                      SizedBox(height: 32.h),
+                      SizedBox(height: 32 ),
                       Row(
                         children: [
                           Checkbox(
@@ -239,7 +238,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 32.h),
+                      SizedBox(height: 32 ),
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
@@ -269,7 +268,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 32.h),
+                      SizedBox(height: 32 ),
                       Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,

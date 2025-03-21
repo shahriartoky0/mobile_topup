@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'dart:isolate';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+ import 'package:get/get.dart';
 import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/views/base/components/custom_pin_code_field.dart';
 import 'package:untitled/views/screens/auth/reset_password.dart';
@@ -70,7 +69,7 @@ class _VerifyMailScreenState extends State<VerifyMailScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(32, 108, 32, 0).w,
+            margin: EdgeInsets.fromLTRB(32, 108, 32, 0) ,
             child: Form(
               key: _formKey,
               child: Column(
@@ -81,14 +80,14 @@ class _VerifyMailScreenState extends State<VerifyMailScreen> {
                     AppString.verifyEmail.tr,
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 14 ),
                   Text(
                     AppString.pleaseCheckYourEmailAndEnterTheCode.tr,
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32 ),
                   CustomPinCodeTextField(),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32 ),
                   // Timer Text
                   Center(
                     child: Row(

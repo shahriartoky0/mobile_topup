@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ReusableDatePickerField extends StatefulWidget {
   final String hintText;
@@ -73,7 +72,7 @@ class _ReusableDatePickerFieldState extends State<ReusableDatePickerField> {
     return Container(
       decoration: BoxDecoration(
         color: widget.color,
-        borderRadius: BorderRadius.circular(24.r),
+        borderRadius: BorderRadius.circular(24 ),
       ),
       child: GestureDetector(
         onTap: _selectDate,

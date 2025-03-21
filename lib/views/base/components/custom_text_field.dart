@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../utilities/app_colors.dart';
+ import '../../../utilities/app_colors.dart';
 
 class MyTextFormFieldWithIcon extends StatefulWidget {
   final Widget? prefixIcon;
@@ -38,8 +37,8 @@ class _MyTextFormFieldWithIconState extends State<MyTextFormFieldWithIcon> {
       width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.white,
-        borderRadius: BorderRadius.circular(16.r),
-        border: Border.all(color: AppColors.textFieldBorderColor, width: 1.w),
+        borderRadius: BorderRadius.circular(16  ),
+        border: Border.all(color: AppColors.textFieldBorderColor, width: 1 ),
       ),
       child: TextFormField(
         controller: widget.controller,
@@ -52,7 +51,7 @@ class _MyTextFormFieldWithIconState extends State<MyTextFormFieldWithIcon> {
           prefixIcon: widget.prefixIcon,
           suffixIcon: widget.suffixIcon ?? _buildDefaultSuffixIcon(),
           border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 20.w),
+          contentPadding: EdgeInsets.symmetric(vertical: 16 , horizontal: 20 ),
         ),
         validator: widget.validator,
       ),

@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/utilities/app_strings.dart';
 
-import 'package:untitled/views/base/widgets/textUnderlne.dart';
-import 'package:untitled/views/screens/auth/forgot_password_page.dart';
+ import 'package:untitled/views/screens/auth/forgot_password_page.dart';
 import 'package:untitled/views/screens/auth/sign_up_page.dart';
 
 import '../../../utilities/app_colors.dart';
@@ -32,7 +30,7 @@ class _SignInPageState extends State<SignInPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(32, 108, 32, 0).w,
+            margin: EdgeInsets.fromLTRB(32, 108, 32, 0) ,
             child: Form(
               key: _formKey,
               child: Column(
@@ -43,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
                     AppString.signInToYourAccount.tr,
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 14 ),
                   Text(
                     AppString.welcomeBackPleaseEnterYourDetails.tr,
                     style: Theme.of(context).textTheme.displayMedium,
@@ -51,12 +49,12 @@ class _SignInPageState extends State<SignInPage> {
                     overflow: TextOverflow.ellipsis,
                   ),
 
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32 ),
                   Text(
                     AppString.yourEmail.tr,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 14 ),
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
                       formHintText: AppString.enterEmail.tr,
@@ -77,12 +75,12 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
 
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16 ),
                   Text(
                     AppString.password.tr,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 14 ),
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
                       isPassword: true,
@@ -105,7 +103,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
 
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16 ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -121,7 +119,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16 ),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -137,7 +135,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16 ),
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

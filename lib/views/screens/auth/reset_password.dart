@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+ import 'package:get/get.dart';
 
 import 'package:untitled/utilities/app_colors.dart';
 import 'package:untitled/utilities/app_strings.dart';
@@ -33,7 +32,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(32, 108, 32, 0).w,
+            margin: EdgeInsets.fromLTRB(32, 108, 32, 0) ,
             child: Form(
               key: _formKey,
               child: Column(
@@ -44,18 +43,18 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     AppString.resetPassword.tr,
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 14 ),
 
                   Text(
                     AppString.enterANewPassword.tr,
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32  ),
                   Text(
                     AppString.enterPassword.tr,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 14 ),
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
                       isPassword: true,
@@ -74,12 +73,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                   ),
 
-                  SizedBox(height: 16.h),
+                  SizedBox(height: 16 ),
                   Text(
                     AppString.confirmPassword.tr,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 14 ),
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
                       isPassword: true,
@@ -98,7 +97,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                     ),
                   ),
 
-                  SizedBox(height: 32.h),
+                  SizedBox(height: 32 ),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -120,7 +119,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           context: context,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(24).r,
+                              top: Radius.circular(24) ,
                             ), // Curved top border
                           ),
                           builder: (BuildContext context) {

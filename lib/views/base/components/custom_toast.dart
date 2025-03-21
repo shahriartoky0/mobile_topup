@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:untitled/utilities/app_colors.dart';
+ import 'package:untitled/utilities/app_colors.dart';
 
 
 
@@ -59,10 +58,10 @@ class CustomToast {
               // Constrain width
               margin: margin,
               padding:
-                EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.0.h),
+                EdgeInsets.symmetric(horizontal: 16 , vertical: 12.0 ),
               decoration: BoxDecoration(
                 color: backgroundColor,
-                borderRadius: BorderRadius.circular(30.r),
+                borderRadius: BorderRadius.circular(30 ),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -70,7 +69,7 @@ class CustomToast {
                 children: [
                   if (headingWidget != null) ...[
                     headingWidget,
-                    SizedBox(width: 8.w), // Add spacing between widget and text
+                    SizedBox(width: 8  ), // Add spacing between widget and text
                   ],
                   Flexible(
                     child: Text(

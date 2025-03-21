@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
+ import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../utilities/app_colors.dart';
 
@@ -26,8 +25,8 @@ class CustomPinCodeTextField extends StatelessWidget {
         activeFillColor: AppColors.primaryColor,
         selectedFillColor: AppColors.grey,
         inactiveFillColor: AppColors.primaryColor,
-        fieldHeight: 57.h,
-        fieldWidth: 44.w,
+        fieldHeight: 57,
+        fieldWidth: 44,
         inactiveColor: AppColors.primaryColor,
         activeColor: AppColors.primaryColor,
       ),

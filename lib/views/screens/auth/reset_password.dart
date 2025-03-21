@@ -9,7 +9,7 @@ import 'package:untitled/views/base/widgets/textUnderlne.dart';
 
 import '../../base/components/custom_text_field.dart';
 import '../../base/widgets/app_custom_modal.dart';
-import '../../base/widgets/app_custom_textfield.dart';
+import '../../base/widgets/container_text_field.dart';
 
 
 
@@ -60,8 +60,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       isPassword: true,
                       formHintText: AppString.enterPassword,
                       prefixIcon: Icon(
-                        Icons.lock,
-                        color: AppColors.primaryColor,
+                        Icons.lock_outline,
                       ),
                       controller: _resetPassTEController,
                       validator: (String? value) {
@@ -84,9 +83,8 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       isPassword: true,
                       formHintText: AppString.confirmPassword,
                       prefixIcon: Icon(
-                        Icons.lock,
-                        color: AppColors.primaryColor,
-                      ),
+                        Icons.lock_outline,
+                       ),
                       controller: _confirmPassTeController,
                       validator: (String? value) {
                         if (value?.isEmpty ?? true) {
@@ -129,7 +127,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                           // This callback is called when the modal is dismissed
                           FocusScope.of(context).unfocus();
                         });
-                        ;
+
                       },
                       child: Text(
                         AppString.resetPassword.tr,

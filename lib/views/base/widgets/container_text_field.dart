@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
- import 'package:untitled/utilities/app_colors.dart';
+import 'package:untitled/utilities/app_colors.dart';
 
 class AppCustomContainerField extends StatelessWidget {
   const AppCustomContainerField({super.key, this.containerChild});
@@ -11,9 +11,9 @@ class AppCustomContainerField extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.textFieldShade,
-        borderRadius: BorderRadius.circular(32 ),
-        border: Border.all(color: AppColors.textFieldBorderColor, width: 0.1 ),
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(50),
+        border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
       ),
       child: containerChild,
     );

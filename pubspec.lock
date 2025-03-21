@@ -73,6 +73,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.19.1"
+  country:
+    dependency: "direct main"
+    description:
+      name: country
+      sha256: "208518ad68f48689fa838e44650e8c2efe15f1e96a6a947f575078302df7c9d6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.1"
   crypto:
     dependency: transitive
     description:
@@ -142,14 +150,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.0"
-  flutter_screenutil:
-    dependency: "direct main"
-    description:
-      name: flutter_screenutil
-      sha256: "8239210dd68bee6b0577aa4a090890342d04a136ce1c81f98ee513fc0ce891de"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.9.3"
   flutter_svg:
     dependency: "direct main"
     description:

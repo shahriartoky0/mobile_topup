@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
- import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/utilities/app_strings.dart';
+import 'package:untitled/utilities/app_theme.dart';
 
- import 'package:untitled/views/screens/auth/forgot_password_page.dart';
+import 'package:untitled/views/screens/auth/forgot_password_page.dart';
 import 'package:untitled/views/screens/auth/sign_up_page.dart';
 
 import '../../../utilities/app_colors.dart';
 import '../../base/components/custom_text_field.dart';
-import '../../base/widgets/app_custom_textfield.dart';
+import '../../base/widgets/container_text_field.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPage({super.key});
@@ -30,7 +31,7 @@ class _SignInPageState extends State<SignInPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(32, 108, 32, 0) ,
+            margin: EdgeInsets.fromLTRB(32, 108, 32, 0),
             child: Form(
               key: _formKey,
               child: Column(
@@ -39,29 +40,28 @@ class _SignInPageState extends State<SignInPage> {
                 children: [
                   Text(
                     AppString.signInToYourAccount.tr,
-                    style: Theme.of(context).textTheme.displayLarge,
+                    style: TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 14 ),
+                  SizedBox(height: 14),
                   Text(
                     AppString.welcomeBackPleaseEnterYourDetails.tr,
-                    style: Theme.of(context).textTheme.displayMedium,
+                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
 
-                  SizedBox(height: 32 ),
-                  Text(
-                    AppString.yourEmail.tr,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  SizedBox(height: 14 ),
+                  SizedBox(height: 32),
+                  Text(AppString.yourNumber.tr),
+                  SizedBox(height: 14),
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
-                      formHintText: AppString.enterEmail.tr,
-                      prefixIcon: Icon(
-                        Icons.mail_outline,
-                        color: AppColors.primaryColor,
-                      ),
+                      formHintText: AppString.phoneNumberHintText.tr,
+                      keyBoardType: TextInputType.phone,
+
+                      prefixIcon: Icon(CupertinoIcons.phone),
                       controller: _emailTEController,
                       validator: (String? value) {
                         if (value?.isEmpty ?? true) {
@@ -75,20 +75,17 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
 
-                  SizedBox(height: 16 ),
+                  SizedBox(height: 16),
                   Text(
                     AppString.password.tr,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
-                  SizedBox(height: 14 ),
+                  SizedBox(height: 14),
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
                       isPassword: true,
                       formHintText: AppString.enterPassword,
-                      prefixIcon: Icon(
-                        Icons.lock_outlined,
-                        color: AppColors.primaryColor,
-                      ),
+                      prefixIcon: Icon(Icons.lock_outline),
                       controller: _passwordTEController,
                       validator: (String? value) {
                         if (value?.isEmpty ?? true) {
@@ -103,7 +100,7 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
 
-                  SizedBox(height: 16 ),
+                  SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
@@ -113,13 +110,13 @@ class _SignInPageState extends State<SignInPage> {
                         },
                         child: Text(
                           AppString.forgotPassword.tr,
-                          style: Theme.of(context).textTheme.displayMedium,
+                          style: TextStyle(color: AppColors.primaryColor),
                           textAlign: TextAlign.end,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 16 ),
+                  SizedBox(height: 16),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
@@ -135,20 +132,23 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16 ),
+                  SizedBox(height: 16),
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(AppString.dontHaveAnAccount.tr),
+                        Text(
+                          AppString.dontHaveAnAccount.tr,
+                          style: textTheme(context).displayMedium,
+                        ),
                         TextButton(
                           onPressed: () {
                             Get.to(SignUpPage());
                           },
                           child: Text(
                             AppString.signUp.tr,
-                            style: Theme.of(context).textTheme.headlineMedium!,
+                            style: TextStyle(color: AppColors.primaryColor),
                           ),
                         ),
                       ],

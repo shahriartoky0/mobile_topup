@@ -19,7 +19,7 @@ class AppCustomModal extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(24) ),
         border: Border(
           top: BorderSide(
-            color: AppColors.primaryColor.withValues(
+            color: AppColors.green.withValues(
               alpha: 0.6,
             ), // Color only on top
             width: 5, // Border thickness
@@ -36,7 +36,7 @@ class AppCustomModal extends StatelessWidget {
               height: 6 ,
               width: 50 ,
               decoration: BoxDecoration(
-                color: AppColors.modalHandleColor,
+                color: AppColors.green,
                 borderRadius: BorderRadius.circular(10 ),
               ),
             ),
@@ -50,7 +50,7 @@ class AppCustomModal extends StatelessWidget {
                 backgroundColor: AppColors.primaryColor,
                 child: CircleAvatar(
                   radius: 18 ,
-                  backgroundColor: AppColors.white,
+                  backgroundColor: AppColors.green,
                   child: const Icon(
                     Icons.check,
                     size: 26,
@@ -62,7 +62,7 @@ class AppCustomModal extends StatelessWidget {
             SizedBox(height: 32 ),
             Text(
               AppString.passwordChanged.tr,
-              style: Theme.of(context).textTheme.displayLarge,
+              style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10 ),
             Text(

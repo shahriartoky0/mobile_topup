@@ -6,14 +6,14 @@ import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/views/base/components/custom_pin_code_field.dart';
 import 'package:untitled/views/screens/auth/reset_password.dart';
 
-class VerifyMailScreen extends StatefulWidget {
-  const VerifyMailScreen({super.key});
+class VerifyPhoneScreen extends StatefulWidget {
+  const VerifyPhoneScreen({super.key});
 
   @override
-  State<VerifyMailScreen> createState() => _VerifyMailScreenState();
+  State<VerifyPhoneScreen> createState() => _VerifyPhoneScreenState();
 }
 
-class _VerifyMailScreenState extends State<VerifyMailScreen> {
+class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
   late ReceivePort _receivePort;
   late SendPort _sendPort;
   int _start = 60; // Timer starting value (seconds)
@@ -133,8 +133,8 @@ class _VerifyMailScreenState extends State<VerifyMailScreen> {
                           },
                           child: Text(
                             AppString.resendIt,
-                            style: Theme.of(context).textTheme.bodyMedium!
-                                .copyWith(fontWeight: FontWeight.bold),
+                            style: Theme.of(context).textTheme.labelMedium!
+                                .copyWith(fontWeight: FontWeight.bold,color: Colors.green),
                           ),
                         ),
                       ],

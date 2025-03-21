@@ -1,13 +1,16 @@
 //============================LoginPage=======================================>
 class AppString {
   AppString._();
+
   static String signInToYourAccount = 'Sign in To Your Account';
   static const String welcomeBackSignInUsingYourSocialAccountOr =
       'Welcome back! Please Enter Your Details';
   static const String emailToContinue = 'Email To Continue Us';
   static const String yourEmail = 'Your Email';
+  static const String yourNumber = 'Your Number';
   static const String email = 'Email';
   static const String enterYourEmail = 'Enter Your Email';
+  static const String enterYourNumber = 'Enter Your Number';
   static const String enterEmail = 'Enter Email';
   static const String password = 'Password';
   static const String enterPassword = 'Enter Password';
@@ -39,8 +42,8 @@ class AppString {
   static const String alreadyHaveAnAccount = 'Already have an Account? ';
 
   //============================SignUp Page=======================================>
-  static const String pleaseEnterYourEmailAddressToResetPassword =
-      'Please Enter Your Email Address to Reset Password';
+  static const String pleaseEnterYourNumberToResetPassword =
+      'Please Enter Your Number to Reset Password';
   static const String sendOTP = 'Send Otp';
 
   //============================Verify Email Page=======================================>
@@ -65,6 +68,16 @@ class AppString {
   returnToTheLoginPageToEnterYourAccountWithYourNewPassword =
       'Return to the login page to enter your account with your new password.';
 
-  //============================Validator  String=======================================>
+  //============================ Validator  String=======================================>
   static const String pleaseEnterYour = 'Please Enter Your';
+
+  //============================TopUp  String=======================================>
+  static const String whereAreYouSendingTo = 'Where are you sending to?';
+  static const String allCountries = 'All countries';
+  static const String searchCountry = 'Search Country';
+  static const String contacts = 'Contacts';
+  static const String pleaseEnterPhoneNumber = 'Please enter the phone number';
+  static const String youWantToTopUp = 'You want to top-up';
+
+
 }

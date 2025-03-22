@@ -1,14 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_getx_widget.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-
+import 'package:untitled/utilities/app_images.dart';
 import '../../../utilities/app_colors.dart';
 import '../../../utilities/app_strings.dart';
-import '../../../utilities/app_theme.dart';
+import '../../../controller/subscription_tab_controller.dart';
+import '../../base/widgets/most_popular_offer_tile.dart';
+import '../../base/widgets/regular_offer_tile.dart';
+import '../../base/widgets/subscription_toggle.dart';
 
 class TopUpDashboard extends StatelessWidget {
   const TopUpDashboard({super.key});
@@ -20,211 +20,277 @@ class TopUpDashboard extends StatelessWidget {
       SubscriptionTabController(),
     );
 
+    // Demo JSON Data for Offers
+    final List<Map<String, dynamic>> offers = [
+      {
+        "type": "most_popular",
+        "info": "4.5 USD",
+        "price": "400 BDT",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "1000 BDT",
+        "price": "860 USD",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "2000 BDT",
+        "price": "120 USD",
+        "isSelected": false,
+      },
+      // Add more regular offers as needed
+    ];
+    final List<Map<String, dynamic>> plans = [
+      {
+        "type": "most_popular",
+        "info": "50GB+600Mins",
+        "price": "4.5 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "40GB+500Mins",
+        "price": "11.49 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "30GB+400Mins",
+        "price": "5.99 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "20GB+300Mins",
+        "price": "3.99 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "10GB+200Mins",
+        "price": "2.99 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "50GB+100Mins",
+        "price": "2.00 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "50GB+100Mins",
+        "price": "2.00 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+      {
+        "type": "regular_offer",
+        "info": "50GB+100Mins",
+        "price": "2.00 USD",
+        "valid_for": "30 days",
+        "isSelected": false,
+      },
+    ];
+
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.arrow_back_ios),
-                  onPressed: () => Get.back(),
-                ),
-              ],
-            ),
-            //// ============================= Button ===================>
-            SubscriptionToggle(),
-            SizedBox(height: 18),
-            GetX<SubscriptionTabController>(
-              builder: (controller) {
-                return controller.isSelected.value
-                    ? ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Column(children: [SizedBox(height: 18)]);
-                      },
-                      itemCount: 3,
-                    )
-                    : Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        color: AppColors.appBarColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: AppColors.primaryColor,
-                            blurRadius: 1,
-                            offset: Offset(0, 6),
-                          ),
-                        ],
-                        border: Border.all(color: AppColors.primaryColor),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Date",
-                            style: Theme.of(context).textTheme.displayMedium!
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            "Wednesday, February 19, 09.00 pm",
-                            style: textThemeApp.displayLarge,
-                          ),
-                          // CustomPaint(
-                          //   size: Size(double.infinity, 30.h),
-                          //   painter: DottedLinePainter(),
-                          // ),
-                          Text(
-                            "Location",
-                            style: Theme.of(context).textTheme.displayMedium!
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 5),
-                          Text("Somewhere", style: textThemeApp.displayLarge),
-                          // CustomPaint(
-                          //   size: Size(double.infinity, 30.h),
-                          //   painter: DottedLinePainter(),
-                          // ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "Event Cost ",
-                                style: textThemeApp.displayLarge,
-                              ),
-                              Text("\$200", style: textThemeApp.displayLarge),
-                            ],
-                          ),
-                          // CustomPaint(
-                          //   size: Size(double.infinity, 30.h),
-                          //   painter: DottedLinePainter(),
-                          // ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "One Time Ticket",
-                                style: textThemeApp.displayLarge,
-                              ),
-                              Text("\$20", style: textThemeApp.displayLarge),
-                            ],
-                          ),
-                          // CustomPaint(
-                          //   size: Size(double.infinity, 30.h),
-                          //   painter: DottedLinePainter(),
-                          // ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text("Total", style: textThemeApp.displayLarge),
-                              Text("\$220", style: textThemeApp.displayLarge),
-                            ],
-                          ),
-                        ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back_ios),
+                    onPressed: () => Get.back(),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16),
+
+              /// ==================================== Before toggle button ================================
+              Image.asset(AppImages.airtelLogo),
+              Text(AppString.howMuchDoYouWantToTopUp.tr),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(AppImages.flagDemo),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                    child: Text(AppString.phoneNumberHintText),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(Icons.edit),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+
+              //// ============================= Button ===================>
+              SubscriptionToggle(),
+              GetX<SubscriptionTabController>(
+                builder: (controller) {
+                  if (controller.isSelected.value) {
+                    /// Top Up packages ==========================>
+                    return Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: offers.length,
+                        itemBuilder: (context, index) {
+                          final offer = offers[index];
+                          return Obx(() {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child:
+                                  offer['type'] == 'most_popular'
+                                      ? MostPopularOfferTile(
+                                        onTap: () {
+                                          controller.updateSelectedTopUpTile(
+                                            index,
+                                          );
+                                        },
+                                        isSelected:
+                                            controller
+                                                .selectedTopUpIndex
+                                                .value ==
+                                            index,
+                                        trailing: Text(offer['price'] ?? ""),
+                                        children: [
+                                          Text(offer['info']),
+                                          SizedBox(height: 3),
+                                          Text(
+                                            AppString.mostPopular,
+                                            style: Theme.of(
+                                              context,
+                                            ).textTheme.displayMedium!.copyWith(
+                                              color: AppColors.primaryColor,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                      : RegularOfferTile(
+                                        onTap: () {
+                                          controller.updateSelectedTopUpTile(
+                                            index,
+                                          );
+                                        },
+                                        isSelected:
+                                            controller
+                                                .selectedTopUpIndex
+                                                .value ==
+                                            index,
+                                        leading: Text(offer['info'] ?? ""),
+                                        trailing: Text(offer['price']),
+                                      ),
+                            );
+                          });
+                        },
                       ),
                     );
-              },
-            ),
-          ],
+                  } else {
+                    return Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: plans.length,
+                        itemBuilder: (context, index) {
+                          final plan = plans[index];
+                          return Obx(() {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child:
+                                  plan['type'] == 'most_popular'
+                                      ? MostPopularOfferTile(
+                                        onTap: () {
+                                          controller.updateSelectedPlanTile(
+                                            index,
+                                          );
+                                          log(
+                                            controller.selectedTopUpIndex
+                                                .toString(),
+                                          );
+                                        },
+                                        isSelected:
+                                            controller
+                                                .selectedPlansIndex
+                                                .value ==
+                                            index,
+                                        trailing: Text(plan['price'] ?? ""),
+                                        children: [
+                                          Text(
+                                            plan['info'],
+                                            style: textThemeApp.displayMedium,
+                                          ),
+                                          SizedBox(height: 3),
+                                          Text(
+                                            "Valid for ${plan['valid_for']}",
+                                            style: textThemeApp.displayMedium,
+                                          ),
+                                          SizedBox(height: 3),
+                                          Text(
+                                            AppString.mostPopular,
+                                            style: Theme.of(
+                                              context,
+                                            ).textTheme.displayMedium!.copyWith(
+                                              color: AppColors.primaryColor,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                      : RegularOfferTile(
+                                        onTap: () {
+                                          controller.updateSelectedPlanTile(
+                                            index,
+                                          );
+                                        },
+                                        isSelected:
+                                            controller
+                                                .selectedPlansIndex
+                                                .value ==
+                                            index,
+                                        leading: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              plan['info'] ?? "",
+                                              style: textThemeApp.displayMedium!
+                                                  .copyWith(
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                            SizedBox(height: 5),
+                                            Text(
+                                              "Valid for ${plan['valid_for']}",
+                                              style: textThemeApp.displayMedium,
+                                            ),
+                                          ],
+                                        ),
+                                        trailing: Text(plan['price']),
+                                      ),
+                            );
+                          });
+                        },
+                      ),
+                    );
+                  }
+                },
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
-}
-
-class SubscriptionTabController extends GetxController {
-  RxBool isSelected = true.obs;
-}
-
-class SubscriptionToggle extends StatelessWidget {
-  // Get the controller outside the widget to avoid re-initialization on rebuild
-  final SubscriptionTabController controller =
-      Get.find<SubscriptionTabController>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
-          Flexible(
-            flex: 1,
-            child: Obx(() {
-              return InkWell(
-                onTap: () {
-                  controller.isSelected.value = true; // Set to true
-                },
-                child: Container(
-                  height: 57,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color:
-                        controller.isSelected.value
-                            ? AppColors.primaryColor
-                            : AppColors.appBarColor,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      bottomLeft: Radius.circular(16),
-                    ),
-                    border: Border.all(color: AppColors.primaryColor),
-                  ),
-                  child: Center(
-                    child: Text(
-                      AppString.searchCountry,
-                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color:
-                            controller.isSelected.value
-                                ? Colors.white
-                                : AppColors.primaryColor,
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }),
-          ),
-          Flexible(
-            flex: 1,
-            child: Obx(() {
-              return InkWell(
-                onTap: () {
-                  controller.isSelected.value = false;
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 57,
-                  decoration: BoxDecoration(
-                    color:
-                        !controller.isSelected.value
-                            ? AppColors.primaryColor
-                            : AppColors.appBarColor,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(16),
-                      bottomRight: Radius.circular(16),
-                    ),
-                    border: Border.all(color: AppColors.primaryColor),
-                  ),
-                  child: Center(
-                    child: Text(
-                      AppString.pleaseEnterPhoneNumber,
-                      style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color:
-                            controller.isSelected.value
-                                ? AppColors.primaryColor
-                                : AppColors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }),
-          ),
-        ],
       ),
     );
   }

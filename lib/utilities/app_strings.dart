@@ -78,6 +78,10 @@ class AppString {
   static const String contacts = 'Contacts';
   static const String pleaseEnterPhoneNumber = 'Please enter the phone number';
   static const String youWantToTopUp = 'You want to top-up';
-
-
+  static const String topUpAmountPrompt = 'How much do you want to top-up?';
+  static const String topUp = 'Top-Up';
+  static const String plans = 'Plans';
+  static const String howMuchDoYouWantToTopUp =
+      'How much do you want to top-up?';
+  static const String mostPopular = 'Most popular';
 }

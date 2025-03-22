@@ -5,6 +5,7 @@ import 'package:untitled/views/screens/auth/sign_in_page.dart';
 import 'package:untitled/views/screens/topup/topup_dashboard.dart';
 import 'package:untitled/views/screens/topup/topup_landing.dart';
 import 'package:untitled/views/screens/topup/topup_number.dart';
+import 'package:untitled/views/screens/topup/topup_payment_details.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: TopUpDashboard(),
+      home: OrderPage(),
       theme: AppTheme.defaultThemeData,
       initialBinding: ControllerBinder(),
       debugShowCheckedModeBanner: false,

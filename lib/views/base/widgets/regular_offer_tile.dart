@@ -20,21 +20,18 @@ class RegularOfferTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
           border: Border.all(
             color: Colors.blue, // Replace with AppColors.primaryColor
             width: 2,
           ),
           borderRadius: BorderRadius.circular(12),
-          color:
-              isSelected
-                  ? AppColors.primaryColor.withValues(alpha: 0.1)
-                  : Colors.transparent,
+          color: isSelected ? AppColors.primaryColor.withValues(alpha: 0.1) : Colors.transparent,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [leading, trailing],
+          children: <Widget>[leading, trailing],
         ),
       ),
     );

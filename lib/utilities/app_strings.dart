@@ -21,8 +21,7 @@ class AppString {
 
   //============================SignUp Page=======================================>
   static String signUpToYourAccount = 'Sign Up To Your Account';
-  static const String welcomeBackPleaseEnterYourDetails =
-      'Welcome back! Please Enter Your Details';
+  static const String welcomeBackPleaseEnterYourDetails = 'Welcome back! Please Enter Your Details';
 
   static const String userName = 'User Name';
   static const String firstName = 'First Name';
@@ -64,8 +63,7 @@ class AppString {
   //============================Reset Password Modal=======================================>
   static const String passwordChanged = 'Password Changed!';
   static const String backToSignIn = 'Back to sign in';
-  static const String
-  returnToTheLoginPageToEnterYourAccountWithYourNewPassword =
+  static const String returnToTheLoginPageToEnterYourAccountWithYourNewPassword =
       'Return to the login page to enter your account with your new password.';
 
   //============================ Validator  String=======================================>
@@ -81,7 +79,15 @@ class AppString {
   static const String topUpAmountPrompt = 'How much do you want to top-up?';
   static const String topUp = 'Top-Up';
   static const String plans = 'Plans';
-  static const String howMuchDoYouWantToTopUp =
-      'How much do you want to top-up?';
+  static const String howMuchDoYouWantToTopUp = 'How much do you want to top-up?';
   static const String mostPopular = 'Most popular';
-}
+  static const String apply = 'Apply';
+  static const String enterPromoCode = 'Enter Promo Code';
+  static const String howWouldYouLikeToPay  = 'How Would You Like To Pay';
+  static const String scheduleTopUp  = 'Schedule Top-Up';
+  static const String packageAutoTopUpInfo = 'This package will be auto top-up after your selected time.';
+  static const String subTotal = 'Sub Total :';
+  static const String fee = 'Fee :';
+  static const String promoCodeDiscount = 'Promo Code Discount :';
+  static const String yourTotal = 'Your Total';
+ }

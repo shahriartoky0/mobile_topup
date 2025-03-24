@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:untitled/views/base/components/cached_image.dart';
 
 import '../../../utilities/app_colors.dart';
 
@@ -29,16 +31,18 @@ class ImageCarousel extends StatelessWidget {
     this.height = 300.0,
     this.indicatorWidth = 20.0,
     this.indicatorHeight = 10.0,
-    this.activeIndicatorColor = Colors.white,
-    this.inactiveIndicatorColor = Colors.white54,
+    this.activeIndicatorColor = Colors.black,
+    this.inactiveIndicatorColor = Colors.black,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
         // PageView.builder to display images
         Container(
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(24)),
+          margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           height: height,
           child: PageView.builder(
             itemCount: imgList.length,
@@ -46,72 +50,46 @@ class ImageCarousel extends StatelessWidget {
               _controller.updateIndex(index); // Update index when page changes
             },
             itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(16),
-                    bottomLeft: Radius.circular(16),
-                  ),
-                  color: Colors.black,
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(24),
 
-                  image: DecorationImage(
-                    image: NetworkImage(imgList[index]),
-                    opacity: 0.7,
-                    fit: BoxFit.cover,
-                  ),
+                child: Container(
+                  decoration: BoxDecoration(color: Colors.black),
+                  child: CachedImage(imageUrl: imgList[index], fit: BoxFit.fill),
                 ),
               );
             },
           ),
         ),
+        SizedBox(height: 8),
         // Page indicator
         Obx(() {
           return Positioned(
             bottom: 0,
             left: 50,
 
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.e,
-              children: [
-                Text(
-                  "Unlimited Access",
-                  style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "bagel",
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                imgList.length,
+                (index) => AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  width:
+                      _controller.currentIndex.value == index
+                          ? indicatorWidth
+                          : indicatorWidth * 0.6,
+                  height: indicatorHeight,
+                  margin: EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: BoxDecoration(
+                    color:
+                        _controller.currentIndex.value == index
+                            ? activeIndicatorColor
+                            : inactiveIndicatorColor,
+                    borderRadius: BorderRadius.circular(5.0),
+                    border: Border.all(color: AppColors.primaryColor),
                   ),
                 ),
-                Text(
-                  "All dinners every wednesday",
-                  style: Theme.of(
-                    context,
-                  ).textTheme.labelMedium!.copyWith(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 90),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(
-                    imgList.length,
-                    (index) => AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      width:
-                          _controller.currentIndex.value == index
-                              ? indicatorWidth
-                              : indicatorWidth * 0.6,
-                      height: indicatorHeight,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        color:
-                            _controller.currentIndex.value == index
-                                ? activeIndicatorColor
-                                : inactiveIndicatorColor,
-                        borderRadius: BorderRadius.circular(5.0),
-                        border: Border.all(color: AppColors.black),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           );
         }),

@@ -83,11 +83,22 @@ class AppString {
   static const String mostPopular = 'Most popular';
   static const String apply = 'Apply';
   static const String enterPromoCode = 'Enter Promo Code';
-  static const String howWouldYouLikeToPay  = 'How Would You Like To Pay';
-  static const String scheduleTopUp  = 'Schedule Top-Up';
-  static const String packageAutoTopUpInfo = 'This package will be auto top-up after your selected time.';
+  static const String promoCode = ' Promo Code';
+  static const String howWouldYouLikeToPay = 'How Would You Like To Pay';
+  static const String scheduleTopUp = 'Schedule Top-Up';
+  static const String packageAutoTopUpInfo =
+      'This package will be auto top-up after your selected time.';
   static const String subTotal = 'Sub Total :';
   static const String fee = 'Fee :';
   static const String promoCodeDiscount = 'Promo Code Discount :';
   static const String yourTotal = 'Your Total';
- }
+
+  //============================Market  String=======================================>
+  static const String giftCard = 'Gift Card';
+  static const String enterTheCode = 'Enter the Code';
+  static const String enterTheId = 'Enter the Id';
+  static const String playerID = 'Player Id';
+
+  static const String groceryStores =
+      'Choose from top grocery stores, restaurants, supermarkets, and utilities. We have something for everyone.';
+}

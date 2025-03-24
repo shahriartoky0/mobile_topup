@@ -5,7 +5,9 @@ class MyTextFormFieldWithIcon extends StatefulWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool isPassword;
+  final bool readOnly;
   final String formHintText;
+  final TextStyle? hintStyle;
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
   final FormFieldValidator<String>? validator;
@@ -21,11 +23,12 @@ class MyTextFormFieldWithIcon extends StatefulWidget {
     this.onChanged,
     this.validator,
     this.keyBoardType,
+    this.hintStyle,
+    this.readOnly = false,
   });
 
   @override
-  _MyTextFormFieldWithIconState createState() =>
-      _MyTextFormFieldWithIconState();
+  _MyTextFormFieldWithIconState createState() => _MyTextFormFieldWithIconState();
 }
 
 class _MyTextFormFieldWithIconState extends State<MyTextFormFieldWithIcon> {
@@ -36,10 +39,12 @@ class _MyTextFormFieldWithIconState extends State<MyTextFormFieldWithIcon> {
     return TextFormField(
       controller: widget.controller,
       keyboardType: widget.keyBoardType,
+      readOnly: widget.readOnly,
       obscureText: widget.isPassword ? _obscureText : false,
       textInputAction: TextInputAction.next,
       onChanged: widget.onChanged,
       decoration: InputDecoration(
+        hintStyle: widget.hintStyle,
         hintText: widget.formHintText,
         prefixIcon: widget.prefixIcon,
         suffixIcon: widget.suffixIcon ?? _buildDefaultSuffixIcon(),
@@ -54,9 +59,7 @@ class _MyTextFormFieldWithIconState extends State<MyTextFormFieldWithIcon> {
   Widget? _buildDefaultSuffixIcon() {
     if (!widget.isPassword) return null;
     return IconButton(
-      icon: Icon(
-        _obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined,
-       ),
+      icon: Icon(_obscureText ? Icons.visibility_off_outlined : Icons.visibility_outlined),
       onPressed: () {
         setState(() {
           _obscureText = !_obscureText;

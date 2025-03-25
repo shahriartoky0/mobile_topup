@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
  import 'package:flutter_svg/flutter_svg.dart';
 
-class NetworkSvgImage extends StatelessWidget {
+class AssetSvgImage extends StatelessWidget {
   final String assetName;
   final double width;
   final double height;
@@ -10,7 +10,7 @@ class NetworkSvgImage extends StatelessWidget {
   final String? semanticsLabel;
   final bool excludeFromSemantics;
 
-  const NetworkSvgImage({
+  const AssetSvgImage({
     Key? key,
     required this.assetName,
     this.width = 16.0,  // Default responsive width

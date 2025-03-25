@@ -11,7 +11,9 @@ import '../../../utilities/app_colors.dart';
 import '../../base/components/custom_text_field.dart';
 
 class TopUpLanding extends StatelessWidget {
-  const TopUpLanding({super.key});
+  final bool showText;
+
+  const TopUpLanding({super.key, this.showText = true});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,10 @@ class TopUpLanding extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Center(child: Text(AppString.whereAreYouSendingTo.tr)),
+                    if (showText)
+                      Center(child: Text(AppString.whereAreYouSendingTo.tr))
+                    else
+                      const SizedBox.shrink(),
                     const SizedBox(height: 16),
                     // Password Field (if still needed)
                     Container(
@@ -47,10 +52,7 @@ class TopUpLanding extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: AppColors.white,
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(
-                          color: AppColors.textFieldBorderColor,
-                          width: 1,
-                        ),
+                        border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
                       ),
                       child: MyTextFormFieldWithIcon(
                         formHintText: AppString.searchCountry.tr,
@@ -68,10 +70,7 @@ class TopUpLanding extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    Text(
-                      AppString.allCountries.tr,
-                      style: textTheme(context).headlineMedium,
-                    ),
+                    Text(AppString.allCountries.tr, style: textTheme(context).headlineMedium),
                     // Reactive list of filtered countries.
                     Obx(
                       () => ListView.separated(
@@ -80,9 +79,7 @@ class TopUpLanding extends StatelessWidget {
                         itemCount: controller.filteredCountries.length,
                         separatorBuilder:
                             (context, index) => Divider(
-                              color: AppColors.primaryColor.withValues(
-                                alpha: 0.2,
-                              ),
+                              color: AppColors.primaryColor.withValues(alpha: 0.2),
                               thickness: 1,
                             ),
                         itemBuilder: (context, index) {
@@ -94,10 +91,7 @@ class TopUpLanding extends StatelessWidget {
                               log(index.toString());
                             },
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 12,
-                                horizontal: 16,
-                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                               child: Row(
                                 children: [
                                   Obx(() {
@@ -107,23 +101,18 @@ class TopUpLanding extends StatelessWidget {
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                         color: AppColors.white,
-                                        border: Border.all(
-                                          color: AppColors.primaryColor,
-                                          width: 2,
-                                        ),
+                                        border: Border.all(color: AppColors.primaryColor, width: 2),
                                         boxShadow: [
-                                          controller.selectedIndex.value ==
-                                                  index
+                                          controller.selectedIndex.value == index
                                               ? BoxShadow(
                                                 offset: Offset(2, 2),
                                                 spreadRadius: 2,
                                                 blurRadius: 2,
-                                                color: AppColors.primaryColor
-                                                    .withValues(alpha: 0.5),
+                                                color: AppColors.primaryColor.withValues(
+                                                  alpha: 0.5,
+                                                ),
                                               )
-                                              : BoxShadow(
-                                                color: Colors.transparent,
-                                              ),
+                                              : BoxShadow(color: Colors.transparent),
                                         ],
                                       ),
 

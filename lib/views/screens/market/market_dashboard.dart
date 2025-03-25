@@ -44,7 +44,7 @@ class MarketDashboard extends StatelessWidget {
             giftContainer(
               context: context,
               imagePath: AppIcons.giftIcon,
-              text: AppString.giftCard,
+              text: AppString.giftCard.tr,
               onPressed: () {
                 Get.to(const GiftThroughApp());
               },
@@ -85,7 +85,7 @@ class MarketDashboard extends StatelessWidget {
             spacing: 20,
             children: <Widget>[
               const SizedBox(width: 1),
-              NetworkSvgImage(assetName: imagePath, width: 50, height: 50, color: AppColors.green),
+              AssetSvgImage(assetName: imagePath, width: 50, height: 50, color: AppColors.green),
               Text(text, style: textTheme(context).bodyMedium!.copyWith(color: AppColors.white)),
             ],
           ),

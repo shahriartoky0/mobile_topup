@@ -78,5 +78,7 @@ class AppIcons{
   static String curveBackIcon="$baseUrl/curve_back_icon.svg";
   static String pubgIcon="$baseUrl/pubg_logo.svg";
   static String giftIcon="$baseUrl/gift_icon.svg";
+  static String appSettingsIcon="$baseUrl/app_settings_icon.svg";
+  static String appAboutIcon="$baseUrl/app_about_icon.svg";
 
 }

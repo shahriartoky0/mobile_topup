@@ -31,7 +31,7 @@ class PaymentDetailsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Text(AppString.yourOrder),
+                    Text(AppString.yourOrder.tr),
                   const SizedBox(height: 20),
                   const OrderCard(
                     imageUrl:
@@ -57,16 +57,16 @@ class PaymentDetailsPage extends StatelessWidget {
                       debugPrint('Confirm button pressed');
                     },
                     orderItems: <OrderItem>[
-                      OrderItem(label: AppString.subTotal, value: '9.52 USD'),
-                      OrderItem(label: AppString.fee, value: '1.00 USD'),
+                      OrderItem(label: AppString.subTotal.tr, value: '9.52 USD'),
+                      OrderItem(label: AppString.fee.tr, value: '1.00 USD'),
                       OrderItem(
-                        label: AppString.promoCodeDiscount,
+                        label: AppString.promoCodeDiscount.tr,
                         value: '1.00 USD',
                         labelStyle: textTheme.headlineMedium!.copyWith(color: Colors.green),
                         valueStyle: textTheme.headlineMedium!.copyWith(color: Colors.green),
                       ),
                     ],
-                    endingLabel: AppString.yourTotal,
+                    endingLabel: AppString.yourTotal.tr,
                     endingValue: '9.52 USD',
                   ),
                 ],

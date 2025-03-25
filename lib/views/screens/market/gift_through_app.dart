@@ -94,14 +94,14 @@ class GiftThroughApp extends StatelessWidget {
               const SizedBox(height: 12),
               Row(
                 children: <Widget>[
-                  const Text(AppString.gift),
+                    Text(AppString.gift.tr),
                   const SizedBox(width: 5),
                   Image.asset(AppImages.flagDemo),
                 ],
               ),
               const SizedBox(height: 12),
               Text(
-                AppString.choicesFromTopStores,
+                AppString.choicesFromTopStores.tr,
                 style: textTheme(context).displayMedium!.copyWith(color: Colors.grey),
               ),
               const SizedBox(height: 24),

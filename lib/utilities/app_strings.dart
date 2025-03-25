@@ -86,10 +86,12 @@ class AppString {
   static const String promoCode = ' Promo Code';
   static const String howWouldYouLikeToPay = 'How Would You Like To Pay';
   static const String scheduleTopUp = 'Schedule Top-Up';
+  static const String recentTopUp = 'Recent Top-Up';
   static const String packageAutoTopUpInfo =
       'This package will be auto top-up after your selected time.';
   static const String subTotal = 'Sub Total :';
   static const String fee = 'Fee :';
+  static const String message = ' Message ';
   static const String promoCodeDiscount = 'Promo Code Discount :';
   static const String yourTotal = 'Your Total';
 
@@ -106,4 +108,29 @@ class AppString {
   static const String choicesFromTopStores =
       'Choses from top grocery stores, restaurants, supermarkets, and utilities.';
   static const String somethingForEveryone = 'We have something for everyone.';
+
+  //============================Account String=======================================>
+  static const String helloGoodEvening = 'Hello, Good Evening';
+  static const String myDetails = 'My details';
+  static const String getHelp = 'Get help';
+  static const String accountSettings = 'Account Settings';
+  static const String about = 'About';
+  static const String signOut = 'Sign out';
+  static const String send = 'Send ';
+  static const String language = 'Language';
+  static const String notification = 'Notification';
+  static const String faq = 'FAQ';
+  static const String contactUs = 'Contact Us';
+  static const String uploadYourPhoto = 'Upload Your Photo';
+  static const String dropOrBrowse = 'Drop file or browse';
+  static const String photoFormatText = 'Format: .jpeg, .png & Max file size: 25 MB';
+  static const String browseFiles = 'Browse Files';
+  static const String cancel = 'Cancel';
+  static const String done = 'Done';
+  static const String save = 'Save';
+  static const String subject = 'Subject';
+  static const String ifYouHaveAnyQuestion = 'If you have any question, contact us';
+  static const String customerService = 'Customer service';
+  static const String demoData =
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 }

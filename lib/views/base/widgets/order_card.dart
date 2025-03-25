@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/utilities/app_colors.dart';
 import 'package:untitled/views/base/components/cached_image.dart';
 
 import '../../../utilities/app_images.dart';
@@ -14,6 +15,8 @@ class OrderCard extends StatelessWidget {
   final String? buttonText;
   final VoidCallback? buttonPressed;
   final bool showButton;
+  final bool blueColor;
+  final bool showMenuIcon;
   final String imageUrl;
 
   const OrderCard({
@@ -28,6 +31,8 @@ class OrderCard extends StatelessWidget {
     this.buttonPressed,
     this.showButton = false,
     required this.imageUrl,
+    this.showMenuIcon = false,
+    this.blueColor = false,
   }) : super(key: key);
 
   @override
@@ -39,11 +44,21 @@ class OrderCard extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Colors.blueAccent, width: 1),
         borderRadius: BorderRadius.circular(12),
+        color: blueColor ? AppColors.primaryColor.withValues(alpha: 0.2) : Colors.white,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          CachedImage(fit: BoxFit.contain, imageUrl: imageUrl, width: 70),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CachedImage(fit: BoxFit.contain, imageUrl: imageUrl, width: 70),
+              if (showMenuIcon)
+                IconButton(onPressed: () {}, icon: Icon(Icons.menu,color: Colors.grey.shade600))
+              else
+                SizedBox.shrink(),
+            ],
+          ),
           // Replace with actual logo path
           const SizedBox(height: 8),
           Row(
@@ -66,6 +81,7 @@ class OrderCard extends StatelessWidget {
               ),
             ],
           ),
+
           const SizedBox(height: 8),
           if (showButton) // Conditionally show the button based on the showButton variable
             Row(
@@ -85,7 +101,7 @@ class OrderCard extends StatelessWidget {
                 ),
               ],
             ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 5),
         ],
       ),
     );

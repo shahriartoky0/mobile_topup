@@ -67,9 +67,9 @@ class UcPaymentDetails extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   PromoCodeInput(
-                    labelText: AppString.playerID,
+                    labelText: AppString.playerID.tr,
                     // The label for the input field
-                    hintText: AppString.enterTheId,
+                    hintText: AppString.enterTheId.tr,
                     // The hint inside the TextFormField
                     controller: playerIdCodeController,
                     isPlayerId: true,
@@ -86,10 +86,10 @@ class UcPaymentDetails extends StatelessWidget {
                       debugPrint('Confirm button pressed');
                     },
                     orderItems: <OrderItem>[
-                      OrderItem(label: AppString.subTotal, value: '9.52 USD'),
-                      OrderItem(label: AppString.fee, value: '1.00 USD'),
+                      OrderItem(label: AppString.subTotal.tr, value: '9.52 USD'),
+                      OrderItem(label: AppString.fee.tr, value: '1.00 USD'),
                       OrderItem(
-                        label: AppString.promoCodeDiscount,
+                        label: AppString.promoCodeDiscount.tr,
                         value: '1.00 USD',
                         labelStyle: textTheme(
                           context,
@@ -99,7 +99,7 @@ class UcPaymentDetails extends StatelessWidget {
                         ).headlineMedium!.copyWith(color: Colors.green),
                       ),
                     ],
-                    endingLabel: AppString.yourTotal,
+                    endingLabel: AppString.yourTotal.tr,
                     endingValue: '9.52 USD',
                   ),
                 ],

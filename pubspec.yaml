@@ -45,6 +45,10 @@ dependencies:
   country: ^5.0.1
   #for shimmer
   shimmer: ^2.0.0
+  #dotted Border
+  dotted_border: ^2.1.0
+  #image picking
+  image_picker: ^1.0.7
 
 
 

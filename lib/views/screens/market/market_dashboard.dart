@@ -5,6 +5,8 @@ import 'package:untitled/utilities/app_icons.dart';
 import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/utilities/app_theme.dart';
 import 'package:untitled/views/base/components/network_svg_image%20.dart';
+import 'package:untitled/views/screens/market/gift_through_app.dart';
+import 'package:untitled/views/screens/market/uc_package_page.dart';
 
 import '../../../utilities/app_colors.dart';
 import '../../base/widgets/image_carousel.dart';
@@ -21,6 +23,7 @@ class MarketDashboard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
+                const SizedBox(width: 10),
                 IconButton(icon: const Icon(Icons.arrow_back_ios), onPressed: () => Get.back()),
               ],
             ),
@@ -42,14 +45,18 @@ class MarketDashboard extends StatelessWidget {
               context: context,
               imagePath: AppIcons.giftIcon,
               text: AppString.giftCard,
-              onPressed: () {},
+              onPressed: () {
+                Get.to(const GiftThroughApp());
+              },
             ),
             const SizedBox(height: 8),
             giftContainer(
               context: context,
               imagePath: AppIcons.pubgIcon,
               text: "PUBG Mobile UC",
-              onPressed: () {},
+              onPressed: () {
+                Get.to(const UCPackageSelection());
+              },
             ),
           ],
         ),
@@ -57,27 +64,27 @@ class MarketDashboard extends StatelessWidget {
     );
   }
 
-  Container giftContainer({
+  GestureDetector giftContainer({
     required BuildContext context,
     required String imagePath,
     required String text,
     required VoidCallback onPressed,
   }) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 18),
 
-      decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: GestureDetector(
-        onTap: onPressed,
+        decoration: BoxDecoration(
+          color: AppColors.primaryColor,
+          borderRadius: BorderRadius.circular(24),
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 6),
           child: Row(
             spacing: 20,
             children: <Widget>[
-              SizedBox(width: 1),
+              const SizedBox(width: 1),
               NetworkSvgImage(assetName: imagePath, width: 50, height: 50, color: AppColors.green),
               Text(text, style: textTheme(context).bodyMedium!.copyWith(color: AppColors.white)),
             ],

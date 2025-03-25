@@ -98,7 +98,12 @@ class AppString {
   static const String enterTheCode = 'Enter the Code';
   static const String enterTheId = 'Enter the Id';
   static const String playerID = 'Player Id';
+  static const String yourOrder = "Your Order";
 
   static const String groceryStores =
       'Choose from top grocery stores, restaurants, supermarkets, and utilities. We have something for everyone.';
+  static const String gift = 'Gifts';
+  static const String choicesFromTopStores =
+      'Choses from top grocery stores, restaurants, supermarkets, and utilities.';
+  static const String somethingForEveryone = 'We have something for everyone.';
 }

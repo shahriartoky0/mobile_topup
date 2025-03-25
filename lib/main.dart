@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_theme.dart';
+import 'package:untitled/views/screens/market/gift_offer.dart';
+import 'package:untitled/views/screens/market/gift_through_app.dart';
 import 'package:untitled/views/screens/market/market_country.dart';
 import 'package:untitled/views/screens/market/market_dashboard.dart';
 import 'package:untitled/views/screens/market/uc_package_page.dart';
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: MarketCountry(),
+      home: MarketDashboard(),
       theme: AppTheme.defaultThemeData,
       initialBinding: ControllerBinder(),
       debugShowCheckedModeBanner: false,

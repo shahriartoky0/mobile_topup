@@ -7,8 +7,8 @@ import '../../base/widgets/payment_method.dart';
 import '../../base/widgets/promo_code.dart';
 import '../../base/widgets/schedule_topup.dart';
 
-class OrderPage extends StatelessWidget {
-  const OrderPage({super.key});
+class PaymentDetailsPage extends StatelessWidget {
+  const PaymentDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,11 @@ class OrderPage extends StatelessWidget {
       // bottomNavigationBar: OrderTotal(showButton: true, buttonText: AppString.confirm.tr, onPressed: () {}),
       body: SafeArea(
         child: ListView(
-          children: [
+          children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: [
+              children: <Widget>[
+                const SizedBox(width: 10),
                 IconButton(icon: const Icon(Icons.arrow_back_ios), onPressed: () => Get.back()),
               ],
             ),
@@ -30,7 +31,7 @@ class OrderPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  const Text("Your Order"),
+                  const Text(AppString.yourOrder),
                   const SizedBox(height: 20),
                   const OrderCard(
                     imageUrl:

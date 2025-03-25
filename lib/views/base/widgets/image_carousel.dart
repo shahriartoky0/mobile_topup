@@ -64,30 +64,25 @@ class ImageCarousel extends StatelessWidget {
         SizedBox(height: 8),
         // Page indicator
         Obx(() {
-          return Positioned(
-            bottom: 0,
-            left: 50,
-
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                imgList.length,
-                (index) => AnimatedContainer(
-                  duration: Duration(milliseconds: 300),
-                  width:
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              imgList.length,
+              (index) => AnimatedContainer(
+                duration: Duration(milliseconds: 300),
+                width:
+                    _controller.currentIndex.value == index
+                        ? indicatorWidth
+                        : indicatorWidth * 0.6,
+                height: indicatorHeight,
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                decoration: BoxDecoration(
+                  color:
                       _controller.currentIndex.value == index
-                          ? indicatorWidth
-                          : indicatorWidth * 0.6,
-                  height: indicatorHeight,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(
-                    color:
-                        _controller.currentIndex.value == index
-                            ? activeIndicatorColor
-                            : inactiveIndicatorColor,
-                    borderRadius: BorderRadius.circular(5.0),
-                    border: Border.all(color: AppColors.primaryColor),
-                  ),
+                          ? activeIndicatorColor
+                          : inactiveIndicatorColor,
+                  borderRadius: BorderRadius.circular(5.0),
+                  border: Border.all(color: AppColors.primaryColor),
                 ),
               ),
             ),

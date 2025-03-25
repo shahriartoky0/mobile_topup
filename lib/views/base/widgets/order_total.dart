@@ -27,7 +27,7 @@ class OrderTotal extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Divider(color: AppColors.primaryColor.withOpacity(0.2)),
+        Divider(color: AppColors.primaryColor.withValues(alpha:  0.2)),
         const SizedBox(height: 10),
 
         // Display dynamic order items (label + value)
@@ -53,7 +53,7 @@ class OrderTotal extends StatelessWidget {
         }).toList(),
 
         const SizedBox(height: 10),
-        Divider(color: AppColors.primaryColor.withOpacity(0.2)),
+        Divider(color: AppColors.primaryColor.withValues(alpha:  0.2)),
         const SizedBox(height: 10),
 
         // Display total amount

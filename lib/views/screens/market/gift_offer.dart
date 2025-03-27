@@ -152,7 +152,7 @@ class GiftOffer extends StatelessWidget {
                                   Text(offer['info']),
                                   const SizedBox(height: 3),
                                   Text(
-                                    AppString.mostPopular,
+                                    AppString.mostPopular.tr,
                                     style: Theme.of(context).textTheme.displayMedium!.copyWith(
                                       color: AppColors.primaryColor,
                                     ),

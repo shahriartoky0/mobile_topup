@@ -9,4 +9,5 @@ class AppImages {
   static String ucImage = "$baseUrl/uc_image.png";
   static String ucCashImage = "$baseUrl/uc_image.png";
   static String giftImage = "$baseUrl/gift_image.png";
+  static String onboardingImage = "$baseUrl/onboarding_image.png";
 }

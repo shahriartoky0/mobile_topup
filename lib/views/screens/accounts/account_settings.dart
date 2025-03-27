@@ -60,7 +60,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text(
-                              AppString.language,
+                              AppString.language.tr,
                               style: Theme.of(
                                 context,
                               ).textTheme.displayMedium!.copyWith(fontSize: 16),
@@ -81,7 +81,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
-                          AppString.notification,
+                          AppString.notification.tr,
                           style: Theme.of(context).textTheme.displayMedium!.copyWith(fontSize: 16),
                         ),
                         Obx(

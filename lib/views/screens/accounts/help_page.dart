@@ -23,8 +23,8 @@ class HelpPage extends StatelessWidget {
         child: Column(
           children: [
             Spacer(),
-            Text(AppString.ifYouHaveAnyQuestion, style: textTheme(context).displayMedium),
-            Text(AppString.customerService),
+            Text(AppString.ifYouHaveAnyQuestion.tr, style: textTheme(context).displayMedium),
+            Text(AppString.customerService.tr),
             SizedBox(height: 8),
           ],
         ),
@@ -94,7 +94,7 @@ class HelpPage extends StatelessWidget {
                               controller: nameTEController,
                               validator: (String? value) {
                                 if (value?.isEmpty ?? true) {
-                                  return '${AppString.pleaseEnterYour} ${AppString.email}!!';
+                                  return '${AppString.pleaseEnterYour.tr} ${AppString.email}!!';
                                 }
                                 return null;
                               },

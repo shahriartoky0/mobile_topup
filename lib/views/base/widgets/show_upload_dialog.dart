@@ -40,7 +40,7 @@ class _UploadPhotoDialogState extends State<UploadPhotoDialog> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              AppString.uploadYourPhoto,
+              AppString.uploadYourPhoto.tr,
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                 color: AppColors.primaryColor,
               ),

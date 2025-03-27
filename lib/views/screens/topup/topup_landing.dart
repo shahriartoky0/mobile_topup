@@ -1,46 +1,56 @@
 import 'dart:developer';
 
+import 'package:country/src/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/utilities/app_theme.dart';
 import 'package:untitled/views/base/widgets/custom_appbar.dart';
+import 'package:untitled/views/screens/home/home_landing_page.dart';
+import 'package:untitled/views/screens/mainbottom_nav.dart';
+import 'package:untitled/views/screens/topup/topup_dashboard.dart';
 import '../../../controller/top_up_country_search_controller.dart';
 import '../../../utilities/app_colors.dart';
 import '../../base/components/custom_text_field.dart';
 
 class TopUpLanding extends StatelessWidget {
   final bool showText;
+  final bool fromOnBoarding;
 
-  const TopUpLanding({super.key, this.showText = true});
+  const TopUpLanding({super.key, this.showText = true, this.fromOnBoarding = false});
 
   @override
   Widget build(BuildContext context) {
     // Initialize the controller via Get.put()
-    final TopUpLandingController controller = Get.put(TopUpLandingController());
+    final TopUpLandingController controller = Get.find<TopUpLandingController>();
 
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            children: [
+            children: <Widget>[
               CustomAppbar(
                 headingText: '',
                 leadingWidget: IconButton(
                   onPressed: () {
+                    if (fromOnBoarding) {
+                      Get.to(const MainBottomNavScreen());
+                      return;
+                    }
+                    // Get.offAll(MainBottomNavScreen());
                     Get.back();
                   },
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
 
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     if (showText)
                       Center(child: Text(AppString.whereAreYouSendingTo.tr))
                     else
@@ -63,7 +73,7 @@ class TopUpLanding extends StatelessWidget {
                           }
                           return null;
                         },
-                        onChanged: (value) {
+                        onChanged: (String value) {
                           // Update search results via the controller.
                           controller.updateSearch(value);
                         },
@@ -78,22 +88,23 @@ class TopUpLanding extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: controller.filteredCountries.length,
                         separatorBuilder:
-                            (context, index) => Divider(
+                            (BuildContext context, int index) => Divider(
                               color: AppColors.primaryColor.withValues(alpha: 0.2),
                               thickness: 1,
                             ),
-                        itemBuilder: (context, index) {
-                          final country = controller.filteredCountries[index];
+                        itemBuilder: (BuildContext context, int index) {
+                          final Country country = controller.filteredCountries[index];
                           return InkWell(
                             onTap: () {
                               controller.selectCountry(index);
-                              log(controller.selectedIndex.toString());
-                              log(index.toString());
+                              // log(controller.selectedIndex.toString());
+                              // log(index.toString());
+                              Get.to(TopUpDashboard());
                             },
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                               child: Row(
-                                children: [
+                                children: <Widget>[
                                   Obx(() {
                                     return Container(
                                       width: 40,
@@ -102,17 +113,17 @@ class TopUpLanding extends StatelessWidget {
                                         shape: BoxShape.circle,
                                         color: AppColors.white,
                                         border: Border.all(color: AppColors.primaryColor, width: 2),
-                                        boxShadow: [
+                                        boxShadow: <BoxShadow>[
                                           controller.selectedIndex.value == index
                                               ? BoxShadow(
-                                                offset: Offset(2, 2),
+                                                offset: const Offset(2, 2),
                                                 spreadRadius: 2,
                                                 blurRadius: 2,
                                                 color: AppColors.primaryColor.withValues(
                                                   alpha: 0.5,
                                                 ),
                                               )
-                                              : BoxShadow(color: Colors.transparent),
+                                              : const BoxShadow(color: Colors.transparent),
                                         ],
                                       ),
 

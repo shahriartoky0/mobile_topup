@@ -16,7 +16,7 @@ class MarketCountry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Initialize the controller via Get.put()
-    final TopUpLandingController controller = Get.put(TopUpLandingController());
+    final TopUpLandingController controller = Get.find<TopUpLandingController>();
 
     return Scaffold(
       body: SafeArea(

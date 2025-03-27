@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/utilities/app_colors.dart';
-import 'package:untitled/views/base/components/cached_image.dart';
 
-import '../../../utilities/app_images.dart';
+import '../../../utilities/app_colors.dart';
 import '../../../utilities/app_theme.dart';
+import '../components/cached_image.dart';
 
-class OrderCard extends StatelessWidget {
+class HomeOrderCard extends StatelessWidget {
   final String serviceName;
   final String userName;
   final String plan;
@@ -20,7 +19,7 @@ class OrderCard extends StatelessWidget {
   final String imageUrl;
   final VoidCallback? onTapCard;
 
-  const OrderCard({
+  const HomeOrderCard({
     Key? key,
     required this.serviceName,
     required this.userName,
@@ -55,25 +54,17 @@ class OrderCard extends StatelessWidget {
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 CachedImage(fit: BoxFit.contain, imageUrl: imageUrl, width: 70),
-                if (showMenuIcon)
-                  IconButton(onPressed: () {}, icon: Icon(Icons.menu, color: Colors.grey.shade600))
-                else
-                  SizedBox.shrink(),
+                Text(plan, style: appTextTheme.displayMedium),
               ],
             ),
             // Replace with actual logo path
-            const SizedBox(height: 8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[Text(userName), Text(plan, style: appTextTheme.displayMedium)],
-            ),
-            const SizedBox(height: 8),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(phoneNumber, style: appTextTheme.displayMedium),
+                Text(userName),
                 Row(
                   children: <Widget>[
                     Text('\$ $price', style: appTextTheme.displayMedium),
@@ -86,26 +77,24 @@ class OrderCard extends StatelessWidget {
               ],
             ),
 
-            const SizedBox(height: 8),
-            if (showButton) // Conditionally show the button based on the showButton variable
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  ElevatedButton(
-                    onPressed: buttonPressed,
-                    // Default button text is 'Confirm'
-                    style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 18),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                    ),
-                    child: Text(
-                      buttonText ?? 'done',
-                      style: textTheme(context).labelMedium!.copyWith(fontSize: 14),
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(phoneNumber, style: appTextTheme.displayMedium),
+                ElevatedButton(
+                  onPressed: buttonPressed,
+                  // Default button text is 'Confirm'
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 18),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   ),
-                ],
-              ),
-            const SizedBox(height: 5),
+                  child: Text(
+                    buttonText ?? 'done',
+                    style: textTheme(context).labelMedium!.copyWith(fontSize: 14),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

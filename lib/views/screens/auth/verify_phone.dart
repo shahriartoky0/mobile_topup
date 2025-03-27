@@ -132,7 +132,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                             _resetTimer(); // Reset and start the timer again
                           },
                           child: Text(
-                            AppString.resendIt,
+                            AppString.resendIt.tr,
                             style: Theme.of(context).textTheme.labelMedium!
                                 .copyWith(fontWeight: FontWeight.bold,color: Colors.green),
                           ),

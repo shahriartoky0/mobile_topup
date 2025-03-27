@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_strings.dart';
+import 'package:untitled/views/screens/mainbottom_nav.dart';
 import '../../base/widgets/order_card.dart';
 import '../../base/widgets/order_total.dart';
 import '../../base/widgets/payment_method.dart';
@@ -8,7 +9,9 @@ import '../../base/widgets/promo_code.dart';
 import '../../base/widgets/schedule_topup.dart';
 
 class PaymentDetailsPage extends StatelessWidget {
-  const PaymentDetailsPage({super.key});
+  final bool fromSignIn;
+
+  const PaymentDetailsPage({super.key, this.fromSignIn = false});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,16 @@ class PaymentDetailsPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 const SizedBox(width: 10),
-                IconButton(icon: const Icon(Icons.arrow_back_ios), onPressed: () => Get.back()),
+                IconButton(
+                  icon: const Icon(Icons.arrow_back_ios),
+                  onPressed: () {
+                    if (fromSignIn) {
+                      Get.offAll(const MainBottomNavScreen());
+                      return;
+                    }
+                    Get.back();
+                  },
+                ),
               ],
             ),
             Padding(
@@ -31,7 +43,7 @@ class PaymentDetailsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                    Text(AppString.yourOrder.tr),
+                  Text(AppString.yourOrder.tr),
                   const SizedBox(height: 20),
                   const OrderCard(
                     imageUrl:

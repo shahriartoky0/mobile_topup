@@ -58,7 +58,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
                       isPassword: true,
-                      formHintText: AppString.enterPassword,
+                      formHintText: AppString.enterPassword.tr,
                       prefixIcon: Icon(
                         Icons.lock_outline,
                       ),
@@ -81,7 +81,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
                       isPassword: true,
-                      formHintText: AppString.confirmPassword,
+                      formHintText: AppString.confirmPassword.tr,
                       prefixIcon: Icon(
                         Icons.lock_outline,
                        ),

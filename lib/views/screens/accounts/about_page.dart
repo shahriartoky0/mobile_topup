@@ -48,7 +48,7 @@ class AboutPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 12),
-                  Text(AppString.about),
+                  Text(AppString.about.tr),
                   SizedBox(height: 12),
                   Text(AppString.demoData, style: textTheme(context).displayMedium),
                 ],

@@ -59,7 +59,7 @@ class UcPaymentDetails extends StatelessWidget {
 
                   ///  ================================= Promo code ========================>
                   PromoCodeInput(
-                    labelText: AppString.promoCode,
+                    labelText: AppString.promoCode.tr,
                     // The label for the input field
                     hintText: AppString.promoCode,
                     // The hint inside the TextFormField

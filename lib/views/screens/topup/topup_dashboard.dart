@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_images.dart';
+import 'package:untitled/views/screens/auth/sign_in_page.dart';
 import '../../../utilities/app_colors.dart';
 import '../../../utilities/app_strings.dart';
 import '../../../controller/subscription_tab_controller.dart';
@@ -16,30 +17,13 @@ class TopUpDashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextTheme textThemeApp = Theme.of(context).textTheme;
-    final SubscriptionTabController controller = Get.put(
-      SubscriptionTabController(),
-    );
+    final SubscriptionTabController controller = Get.put(SubscriptionTabController());
 
     // Demo JSON Data for Offers
     final List<Map<String, dynamic>> offers = [
-      {
-        "type": "most_popular",
-        "info": "4.5 USD",
-        "price": "400 BDT",
-        "isSelected": false,
-      },
-      {
-        "type": "regular_offer",
-        "info": "1000 BDT",
-        "price": "860 USD",
-        "isSelected": false,
-      },
-      {
-        "type": "regular_offer",
-        "info": "2000 BDT",
-        "price": "120 USD",
-        "isSelected": false,
-      },
+      {"type": "most_popular", "info": "4.5 USD", "price": "400 BDT", "isSelected": false},
+      {"type": "regular_offer", "info": "1000 BDT", "price": "860 USD", "isSelected": false},
+      {"type": "regular_offer", "info": "2000 BDT", "price": "120 USD", "isSelected": false},
       // Add more regular offers as needed
     ];
     final List<Map<String, dynamic>> plans = [
@@ -109,10 +93,7 @@ class TopUpDashboard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios),
-                    onPressed: () => Get.back(),
-                  ),
+                  IconButton(icon: const Icon(Icons.arrow_back_ios), onPressed: () => Get.back()),
                 ],
               ),
               SizedBox(height: 16),
@@ -139,7 +120,7 @@ class TopUpDashboard extends StatelessWidget {
               SizedBox(height: 8),
 
               //// ============================= Button ===================>
-              SubscriptionToggle(),
+              PlanningToggle(),
               GetX<SubscriptionTabController>(
                 builder: (controller) {
                   if (controller.isSelected.value) {
@@ -157,40 +138,27 @@ class TopUpDashboard extends StatelessWidget {
                                   offer['type'] == 'most_popular'
                                       ? MostPopularOfferTile(
                                         onTap: () {
-                                          controller.updateSelectedTopUpTile(
-                                            index,
-                                          );
+                                          controller.updateSelectedTopUpTile(index);
+                                          Get.to(SignInPage());
                                         },
-                                        isSelected:
-                                            controller
-                                                .selectedTopUpIndex
-                                                .value ==
-                                            index,
+                                        isSelected: controller.selectedTopUpIndex.value == index,
                                         trailing: Text(offer['price'] ?? ""),
                                         children: [
                                           Text(offer['info']),
                                           SizedBox(height: 3),
                                           Text(
-                                            AppString.mostPopular,
-                                            style: Theme.of(
-                                              context,
-                                            ).textTheme.displayMedium!.copyWith(
-                                              color: AppColors.primaryColor,
-                                            ),
+                                            AppString.mostPopular.tr,
+                                            style: Theme.of(context).textTheme.displayMedium!
+                                                .copyWith(color: AppColors.primaryColor),
                                           ),
                                         ],
                                       )
                                       : RegularOfferTile(
                                         onTap: () {
-                                          controller.updateSelectedTopUpTile(
-                                            index,
-                                          );
+                                          controller.updateSelectedTopUpTile(index);
+                                          Get.to(SignInPage());
                                         },
-                                        isSelected:
-                                            controller
-                                                .selectedTopUpIndex
-                                                .value ==
-                                            index,
+                                        isSelected: controller.selectedTopUpIndex.value == index,
                                         leading: Text(offer['info'] ?? ""),
                                         trailing: Text(offer['price']),
                                       ),
@@ -213,25 +181,14 @@ class TopUpDashboard extends StatelessWidget {
                                   plan['type'] == 'most_popular'
                                       ? MostPopularOfferTile(
                                         onTap: () {
-                                          controller.updateSelectedPlanTile(
-                                            index,
-                                          );
-                                          log(
-                                            controller.selectedTopUpIndex
-                                                .toString(),
-                                          );
+                                          controller.updateSelectedPlanTile(index);
+                                          log(controller.selectedTopUpIndex.toString());
+                                          Get.to(SignInPage());
                                         },
-                                        isSelected:
-                                            controller
-                                                .selectedPlansIndex
-                                                .value ==
-                                            index,
+                                        isSelected: controller.selectedPlansIndex.value == index,
                                         trailing: Text(plan['price'] ?? ""),
                                         children: [
-                                          Text(
-                                            plan['info'],
-                                            style: textThemeApp.displayMedium,
-                                          ),
+                                          Text(plan['info'], style: textThemeApp.displayMedium),
                                           SizedBox(height: 3),
                                           Text(
                                             "Valid for ${plan['valid_for']}",
@@ -239,7 +196,7 @@ class TopUpDashboard extends StatelessWidget {
                                           ),
                                           SizedBox(height: 3),
                                           Text(
-                                            AppString.mostPopular,
+                                            AppString.mostPopular.tr,
                                             style: Theme.of(
                                               context,
                                             ).textTheme.displayMedium!.copyWith(
@@ -251,25 +208,18 @@ class TopUpDashboard extends StatelessWidget {
                                       )
                                       : RegularOfferTile(
                                         onTap: () {
-                                          controller.updateSelectedPlanTile(
-                                            index,
-                                          );
+                                          controller.updateSelectedPlanTile(index);
+                                          Get.to(SignInPage());
                                         },
-                                        isSelected:
-                                            controller
-                                                .selectedPlansIndex
-                                                .value ==
-                                            index,
+                                        isSelected: controller.selectedPlansIndex.value == index,
                                         leading: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               plan['info'] ?? "",
-                                              style: textThemeApp.displayMedium!
-                                                  .copyWith(
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
+                                              style: textThemeApp.displayMedium!.copyWith(
+                                                fontWeight: FontWeight.w600,
+                                              ),
                                             ),
                                             SizedBox(height: 5),
                                             Text(

@@ -6,7 +6,7 @@ import '../../../controller/subscription_tab_controller.dart';
 import '../../../utilities/app_colors.dart';
 import '../../../utilities/app_strings.dart';
 
-class SubscriptionToggle extends StatelessWidget {
+class PlanningToggle extends StatelessWidget {
   // Get the controller outside the widget to avoid re-initialization on rebuild
   final SubscriptionTabController controller =
       Get.find<SubscriptionTabController>();

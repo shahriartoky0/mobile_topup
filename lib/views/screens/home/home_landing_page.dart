@@ -185,7 +185,7 @@ class HomeLandingPage extends StatelessWidget {
                           // ////============================== <==
                           ListView.separated(
                             shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
+                            physics: const ClampingScrollPhysics(),
                             itemCount: 10,
                             itemBuilder: (BuildContext context, int index) {
                               return HomeOrderCard(

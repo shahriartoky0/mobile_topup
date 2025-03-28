@@ -4,6 +4,8 @@ import 'package:untitled/utilities/app_theme.dart';
 import 'package:untitled/views/screens/History/history_homePage.dart';
 import 'package:untitled/views/screens/accounts/account_home.dart';
 import 'package:untitled/views/screens/accounts/account_profile.dart';
+import 'package:untitled/views/screens/auth/phone_number_sign_in.dart';
+import 'package:untitled/views/screens/auth/sign_in_page.dart';
 import 'package:untitled/views/screens/home/home_landing_page.dart';
 import 'package:untitled/views/screens/home/home_onboarding_screen.dart';
 import 'package:untitled/views/screens/home/home_topup.dart';
@@ -43,6 +45,5 @@ class ControllerBinder extends Bindings {
   @override
   void dependencies() {
     Get.put(TopUpLandingController());
-
   }
 }

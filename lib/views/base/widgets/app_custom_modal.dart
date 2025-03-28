@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
  import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/utilities/app_colors.dart';
+import 'package:untitled/views/screens/auth/phone_number_sign_in.dart';
 
 import '../../../utilities/app_strings.dart';
 import '../../screens/auth/sign_in_page.dart';
@@ -76,7 +77,7 @@ class AppCustomModal extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.offAll(() => SignInPage());
+                  Get.offAll(() => PhoneNumberSignIn());
                 },
                 child: Text(
                   AppString.backToSignIn.tr,

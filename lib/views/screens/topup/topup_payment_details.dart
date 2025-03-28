@@ -10,8 +10,9 @@ import '../../base/widgets/schedule_topup.dart';
 
 class PaymentDetailsPage extends StatelessWidget {
   final bool fromSignIn;
+  final bool fromLoginOTP;
 
-  const PaymentDetailsPage({super.key, this.fromSignIn = false});
+  const PaymentDetailsPage({super.key, this.fromSignIn = false,   this.fromLoginOTP = false});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,9 @@ class PaymentDetailsPage extends StatelessWidget {
                   icon: const Icon(Icons.arrow_back_ios),
                   onPressed: () {
                     if (fromSignIn) {
+                      Get.offAll(const MainBottomNavScreen());
+                      return;
+                    } if (fromLoginOTP) {
                       Get.offAll(const MainBottomNavScreen());
                       return;
                     }

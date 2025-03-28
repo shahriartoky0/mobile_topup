@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/utilities/app_colors.dart';
+import 'package:untitled/utilities/app_icons.dart';
+import 'package:untitled/views/base/components/network_svg_image%20.dart';
 import 'package:untitled/views/screens/History/history_homePage.dart';
 import 'package:untitled/views/screens/accounts/account_home.dart';
 import 'package:untitled/views/screens/topup/topup_landing.dart';
@@ -20,16 +21,20 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
 
-  List<Widget> _screens = [HomeLandingPage(), HistoryHomePage(), MarketDashboard(), AccountHome()];
-
-  List<IconData> _icons = [
-    Icons.home_outlined,
-    Icons.history,
-    Icons.store_outlined,
-    Icons.person_outline_outlined,
+  final List<Widget> _screens = <Widget>[
+    const HomeLandingPage(),
+    HistoryHomePage(),
+    const MarketDashboard(),
+    const AccountHome(),
   ];
 
-  List<IconData> _filledIcons = [Icons.home, Icons.history_outlined, Icons.store, Icons.person];
+  final List<AssetSvgImage> _icons = <AssetSvgImage>[
+    AssetSvgImage(assetName: AppIcons.appNavHome),
+    AssetSvgImage(assetName: AppIcons.appNavHistory),
+    AssetSvgImage(assetName: AppIcons.appNavMarket),
+    AssetSvgImage(assetName: AppIcons.appNavProfile),
+
+  ];
 
   @override
   void dispose() {
@@ -41,65 +46,91 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Get.to(TopUpLanding());
-        },
-
-        child: Icon(Icons.cell_tower_sharp, color: AppColors.green),
-        elevation: 0,
-        backgroundColor: AppColors.primaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50), // This makes the button fully circular
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(left: 20, bottom: 0),
+        child: FloatingActionButton(
+          onPressed: () {
+            Get.to(const TopUpLanding());
+          },
+          child: const Icon(Icons.cell_tower_sharp, color: AppColors.green),
+          elevation: 0,
+          backgroundColor: AppColors.primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50), // This makes the button fully circular
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: PageView.builder(
         controller: _pageController,
-        onPageChanged: (index) {
+        onPageChanged: (int index) {
           setState(() {
             _selectedIndex = index;
           });
         },
         itemCount: _screens.length,
-        itemBuilder: (context, index) {
+        itemBuilder: (BuildContext context, int index) {
           return _screens[index];
         },
       ),
       bottomNavigationBar: Container(
-        // margin: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+        margin: EdgeInsets.only(bottom: 12, left: 12,right: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
           // border: Border(top: BorderSide(color: AppColors.green, width: 2)),
         ),
-        child: BottomAppBar(
-          padding: EdgeInsets.symmetric(horizontal: 2),
-          notchMargin: 10,
-          shape: CircularNotchedRectangle(),
-          // This creates the notch for the FAB
-          color: Colors.grey.withValues(alpha: 0.1),
-          elevation: 10,
-          child: Row(
-            spacing: 20,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(_icons.length, (index) {
-              return GestureDetector(
-                onTap: () {
-                  _pageController.jumpToPage(index);
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  child: Icon(
-                    _selectedIndex == index ? _filledIcons[index] : _icons[index],
-                    color: AppColors.black,
-                    size: 28,
-                  ),
-                ),
-              );
-            }),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(24),
+          child: BottomAppBar(
+            padding: const EdgeInsets.only(top: 3),
+            notchMargin: -0.1,
+            shape: const CircularNotchedRectangle(),
+            // This creates the notch for the FAB
+            color: AppColors.green,
+            elevation: 10,
+            child: BottomAppBar(
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+
+              notchMargin: 0,
+              shape: const CircularNotchedRectangle(),
+              color: AppColors.appBarColor,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // spacing: 10,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: List.generate(_icons.length, (int index) {
+                  return GestureDetector(
+                    onTap: () {
+                      _pageController.jumpToPage(index);
+                      setState(() {
+                        _selectedIndex = index;
+                      });
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                       child: _icons[index],
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        boxShadow:
+                            _selectedIndex == index
+                                ? <BoxShadow>[
+                                  BoxShadow(
+                                    color: AppColors.primaryColor.withValues(alpha: 0.2),
+                                    // Shadow color
+                                    offset: Offset(0, 4),
+                                    // Shadow position
+                                    blurRadius: 8, // Blur radius
+                                  ),
+                                ]
+                                : <BoxShadow>[],
+                        shape: BoxShape.circle, // To keep the shape circular (if you want)
+                      ),
+                    ),
+                  );
+                }),
+              ),
+            ),
           ),
         ),
       ),

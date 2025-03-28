@@ -43,7 +43,7 @@ class _SignInPageState extends State<SignInPage> {
                   Text(AppString.signInToYourAccount.tr, style: const TextStyle(fontSize: 20)),
                   const SizedBox(height: 14),
                   Text(
-                    AppString.welcomeBackPleaseEnterYourDetails.tr,
+                    AppString.loginWithEmailAndPassword.tr,
                     style: Theme.of(
                       context,
                     ).textTheme.displayMedium!.copyWith(fontSize: 14, fontWeight: FontWeight.w400),
@@ -52,14 +52,14 @@ class _SignInPageState extends State<SignInPage> {
                   ),
 
                   const SizedBox(height: 32),
-                  Text(AppString.yourNumber.tr),
+                  Text(AppString.email.tr),
                   const SizedBox(height: 14),
                   AppCustomContainerField(
                     containerChild: MyTextFormFieldWithIcon(
-                      formHintText: AppString.phoneNumberHintText.tr,
+                      formHintText: AppString.enterYourEmail.tr,
                       keyBoardType: TextInputType.phone,
 
-                      prefixIcon: const Icon(CupertinoIcons.phone),
+                      prefixIcon: const Icon(Icons.mail_outline),
                       controller: _emailTEController,
                       validator: (String? value) {
                         if (value?.isEmpty ?? true) {

@@ -17,7 +17,7 @@ class CustomPinCodeTextField extends StatelessWidget {
       textStyle: TextStyle(color: Colors.black),
       autoFocus: false,
       appContext: context,
-      length: 6,
+      length: 4,
       pinTheme: PinTheme(
         shape: PinCodeFieldShape.box,
         borderRadius: BorderRadius.circular(8),

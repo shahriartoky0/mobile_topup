@@ -47,38 +47,41 @@ class HistoryHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          InAppbar(),
-          // ListView.builder to dynamically create OrderCard widgets
-          Expanded(
-            child: ListView.builder(
-              itemCount: orders.length,
-              itemBuilder: (BuildContext context, int index) {
-                var order = orders[index]; // Get the order at index
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
-                  child: InkWell(
-                    onTap: () {
-                      Get.to(IndividualHistoryPage());
-                    },
-                    child: OrderCard(
-                      showMenuIcon: true,
-                      blueColor: true,
-                      imageUrl: order["imageUrl"]!,
-                      serviceName: order["serviceName"]!,
-                      userName: order["userName"]!,
-                      plan: order["plan"]!,
-                      phoneNumber: order["phoneNumber"]!,
-                      price: order["price"]!,
-                      duration: order["duration"]!,
+      
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            InAppbar(),
+            // ListView.builder to dynamically create OrderCard widgets
+            Expanded(
+              child: ListView.builder(
+                itemCount: orders.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var order = orders[index]; // Get the order at index
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                    child: InkWell(
+                      onTap: () {
+                        Get.to(IndividualHistoryPage());
+                      },
+                      child: OrderCard(
+                        showMenuIcon: true,
+                        blueColor: true,
+                        imageUrl: order["imageUrl"]!,
+                        serviceName: order["serviceName"]!,
+                        userName: order["userName"]!,
+                        plan: order["plan"]!,
+                        phoneNumber: order["phoneNumber"]!,
+                        price: order["price"]!,
+                        duration: order["duration"]!,
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

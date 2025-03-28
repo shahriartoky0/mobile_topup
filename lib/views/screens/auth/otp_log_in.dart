@@ -1,19 +1,20 @@
 import 'dart:async';
 import 'dart:isolate';
 import 'package:flutter/material.dart';
- import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/views/base/components/custom_pin_code_field.dart';
 import 'package:untitled/views/screens/auth/reset_password.dart';
+import 'package:untitled/views/screens/topup/topup_payment_details.dart';
 
-class VerifyPhoneScreen extends StatefulWidget {
-  const VerifyPhoneScreen({super.key});
+class OtpLogin extends StatefulWidget {
+  const OtpLogin({super.key});
 
   @override
-  State<VerifyPhoneScreen> createState() => _VerifyPhoneScreenState();
+  State<OtpLogin> createState() => _OtpLoginState();
 }
 
-class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
+class _OtpLoginState extends State<OtpLogin> {
   late ReceivePort _receivePort;
   late SendPort _sendPort;
   int _start = 60; // Timer starting value (seconds)
@@ -54,7 +55,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
   // Function that runs in the isolate
   static void _startCountdown(SendPort sendPort) {
     int _start = 60;
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (Timer timer) {
       _start--;
       sendPort.send(_start);
       if (_start == 0) {
@@ -69,32 +70,32 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.fromLTRB(32, 108, 32, 0) ,
+            margin: const EdgeInsets.fromLTRB(32, 108, 32, 0) ,
             child: Form(
               key: _formKey,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     AppString.verifyPhone.tr,
                     style: Theme.of(context).textTheme.displayLarge,
                   ),
-                  SizedBox(height: 14 ),
+                  const SizedBox(height: 14 ),
                   Text(
                     AppString.pleaseCheckYourPhoneAndEnterTheCode.tr,
                     style: Theme.of(context).textTheme.displayMedium,
                   ),
-                  SizedBox(height: 32 ),
-                  CustomPinCodeTextField(),
-                  SizedBox(height: 32 ),
+                  const SizedBox(height: 32 ),
+                  const CustomPinCodeTextField(),
+                  const SizedBox(height: 32 ),
                   // Timer Text
                   Center(
                     child: Row(
                       spacing: 5 ,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.access_time_outlined),
+                      children: <Widget>[
+                        const Icon(Icons.access_time_outlined),
                         Text(
                           _formatTime(_start),
                           style: Theme.of(context).textTheme.bodyMedium!
@@ -103,12 +104,12 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 32 ),
+                  const SizedBox(height: 32 ),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        Get.to(() => ResetPasswordPage());
+                        Get.to(() => const PaymentDetailsPage(fromLoginOTP: true,));
                       },
                       child: Text(
                         AppString.confirm.tr,
@@ -116,13 +117,13 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 32 ),
+                  const SizedBox(height: 32 ),
                   Visibility(
                     visible: !_isButtonDisabled,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: <Widget>[
                         Text(
                           AppString.didNotReceiveCode.tr,
                           style: Theme.of(context).textTheme.displayMedium,

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_images.dart';
+import 'package:untitled/views/screens/auth/phone_number_sign_in.dart';
 import 'package:untitled/views/screens/auth/sign_in_page.dart';
 import '../../../utilities/app_colors.dart';
 import '../../../utilities/app_strings.dart';
@@ -139,7 +140,7 @@ class TopUpDashboard extends StatelessWidget {
                                       ? MostPopularOfferTile(
                                         onTap: () {
                                           controller.updateSelectedTopUpTile(index);
-                                          Get.to(SignInPage());
+                                          Get.to(PhoneNumberSignIn());
                                         },
                                         isSelected: controller.selectedTopUpIndex.value == index,
                                         trailing: Text(offer['price'] ?? ""),
@@ -156,7 +157,7 @@ class TopUpDashboard extends StatelessWidget {
                                       : RegularOfferTile(
                                         onTap: () {
                                           controller.updateSelectedTopUpTile(index);
-                                          Get.to(SignInPage());
+                                          Get.to(PhoneNumberSignIn());
                                         },
                                         isSelected: controller.selectedTopUpIndex.value == index,
                                         leading: Text(offer['info'] ?? ""),

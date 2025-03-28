@@ -24,6 +24,7 @@ class AssetSvgImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
+
       assetName,
       width: width ,  // Responsive width
       height: height , // Responsive height

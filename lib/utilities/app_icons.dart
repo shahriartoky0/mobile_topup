@@ -80,5 +80,10 @@ class AppIcons{
   static String giftIcon="$baseUrl/gift_icon.svg";
   static String appSettingsIcon="$baseUrl/app_settings_icon.svg";
   static String appAboutIcon="$baseUrl/app_about_icon.svg";
+  static String gmailIcon="$baseUrl/gmail_icon.svg";
+  static String appNavHome="$baseUrl/app_nav_home.svg";
+  static String appNavHistory="$baseUrl/app_nav_history.svg";
+  static String appNavMarket="$baseUrl/app_nav_market.svg";
+  static String appNavProfile="$baseUrl/app_nav_profile.svg";
 
 }

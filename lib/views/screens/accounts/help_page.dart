@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_colors.dart';
+import 'package:untitled/utilities/app_images.dart';
 import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/utilities/app_theme.dart';
 import 'package:untitled/views/base/widgets/textUnderlne.dart';
@@ -19,13 +20,21 @@ class HelpPage extends StatelessWidget {
       floatingActionButton: Container(
         width: double.infinity,
         height: 80,
-        decoration: BoxDecoration(color: AppColors.cyan),
+        decoration: const BoxDecoration(color: AppColors.cyan),
         child: Column(
-          children: [
-            Spacer(),
+          children: <Widget>[
+            const Spacer(),
             Text(AppString.ifYouHaveAnyQuestion.tr, style: textTheme(context).displayMedium),
-            Text(AppString.customerService.tr),
-            SizedBox(height: 8),
+            Row(
+              spacing: 5,
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: <Widget>[
+                Image.asset(AppImages.whatsappGif,scale: 2,),
+                Text(AppString.customerService.tr),
+              ],
+            ),
+            const SizedBox(height: 8),
           ],
         ),
       ),
@@ -73,7 +82,7 @@ class HelpPage extends StatelessWidget {
             ),
             Expanded(
               child: PageView.builder(
-                 itemCount: 2, // Number of pages you want to show
+                itemCount: 2, // Number of pages you want to show
                 onPageChanged: (int index) {
                   numberOp.value = index; // Update the underline state when the page changes
                 },
@@ -81,10 +90,10 @@ class HelpPage extends StatelessWidget {
                   return index == 0
                       ? const FAQPage() // Replace with your actual FAQ page widget
                       : ListView(
-                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 18),
+                        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18),
 
-                        physics: ClampingScrollPhysics(),
-                        children: [
+                        physics: const ClampingScrollPhysics(),
+                        children: <Widget>[
                           const SizedBox(height: 14),
                           AppCustomContainerField(
                             containerChild: MyTextFormFieldWithIcon(
@@ -162,7 +171,7 @@ class HelpPage extends StatelessWidget {
                             child: TextFormField(
                               controller: nameTEController,
                               maxLines: 5,
-                              decoration: InputDecoration(hintText: AppString.message),
+                              decoration: const InputDecoration(hintText: AppString.message),
                             ),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(24),

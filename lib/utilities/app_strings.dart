@@ -3,8 +3,7 @@ class AppString {
   AppString._();
 
   static String signInToYourAccount = 'Sign in To Your Account';
-  static const String welcomeBackSignInUsingYourSocialAccountOr =
-      'Welcome back! Please Enter Your Details';
+  static const String weWillTextYouACode = 'We will text you a code to verify your number';
   static const String emailToContinue = 'Email To Continue Us';
   static const String yourEmail = 'Your Email';
   static const String yourNumber = 'Your Number';
@@ -16,12 +15,14 @@ class AppString {
   static const String enterPassword = 'Enter Password';
   static const String forgotPassword = 'Forgot Password?';
   static const String signIn = 'Sign In';
+  static const String confirmPhoneNumber = 'Confirm Phone Number';
   static const String dontHaveAnAccount = "Don't Have An Account?";
   static const String signUp = 'Sign Up';
 
   //============================SignUp Page=======================================>
   static String signUpToYourAccount = 'Sign Up To Your Account';
   static const String welcomeBackPleaseEnterYourDetails = 'Welcome back! Please Enter Your Details';
+  static const String loginWithEmailAndPassword = 'Login with your Email and Password';
 
   static const String userName = 'User Name';
   static const String firstName = 'First Name';
@@ -47,15 +48,17 @@ class AppString {
 
   //============================Verify Email Page=======================================>
   static const String verifyEmail = 'Verify Email';
+  static const String verifyPhone = 'Verify Phone';
   static const String confirm = 'Confirm';
-  static const String pleaseCheckYourEmailAndEnterTheCode =
-      'Please check your email and enter the code';
+  static const String pleaseCheckYourPhoneAndEnterTheCode =
+      'Please check your phone and enter the code';
   static const String didNotReceiveCode = 'Didn’t receive code?';
   static const String resendIt = 'Resend it';
 
   //============================Reset Password Page=======================================>
   static const String resetPassword = 'Reset Password';
   static const String enterANewPassword = 'Enter a new password';
+  static const String orContinueWith = 'Or Continue with';
 
   //============================Toaster String=======================================>
   static const String passwordsDoNotMatch = 'Passwords do not match !!';
@@ -138,6 +141,8 @@ class AppString {
   static const String done = 'Done';
   static const String save = 'Save';
   static const String subject = 'Subject';
+  static const String termsAndConditions = 'Terms and Conditions';
+  static const String privacyPolicy = 'Privacy Policy';
   static const String ifYouHaveAnyQuestion = 'If you have any question, contact us';
   static const String customerService = 'Customer service';
   static const String demoData =

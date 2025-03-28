@@ -49,7 +49,8 @@ dependencies:
   dotted_border: ^2.1.0
   #image picking
   image_picker: ^1.0.7
-
+  #for icons :
+  hugeicons: ^0.0.10
 
 
 

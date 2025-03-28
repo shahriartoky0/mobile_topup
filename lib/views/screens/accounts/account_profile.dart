@@ -107,8 +107,7 @@ class AccountProfile extends StatelessWidget {
                           return null;
                         },
                         onChanged: (String value) {
-                          print("Name Input: $value");
-                        },
+                         },
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -128,11 +127,10 @@ class AccountProfile extends StatelessWidget {
                           return null;
                         },
                         onChanged: (String value) {
-                          print("Email Input: $value");
-                        },
+                         },
                       ),
                     ),
-                    SizedBox(height: 36),
+                    const SizedBox(height: 36),
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(

@@ -44,7 +44,7 @@ class OrderCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTapCard,
       child: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal:  16.0),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blueAccent, width: 1),
           borderRadius: BorderRadius.circular(12),

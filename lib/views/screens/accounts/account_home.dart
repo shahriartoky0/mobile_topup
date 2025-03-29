@@ -10,8 +10,7 @@ import 'package:untitled/views/screens/accounts/about_page.dart';
 import 'package:untitled/views/screens/accounts/privacy_page.dart';
 import 'package:untitled/views/screens/auth/phone_number_sign_in.dart';
 
-import '../../base/widgets/app_custom_modal.dart';
-import '../auth/sign_in_page.dart';
+import '../topup/topup_landing.dart';
 import 'account_profile.dart';
 import 'account_settings.dart';
 import 'help_page.dart';
@@ -21,6 +20,8 @@ class AccountHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    RxBool isLanguageNotificationEnabled = false.obs;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -28,7 +29,7 @@ class AccountHome extends StatelessWidget {
             children: <Widget>[
               const InAppbar(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
                 child: Column(
                   children: <Widget>[
                     SizedBox(
@@ -36,8 +37,7 @@ class AccountHome extends StatelessWidget {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryColor),
                         onPressed: () {
-                          Get.to(const AccountSettings());
-                          // if (_formKey.currentState!.validate()) {}
+                          Get.to(HelpPage());                          // if (_formKey.currentState!.validate()) {}
                         },
 
                         child: Text(
@@ -82,9 +82,80 @@ class AccountHome extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 48),
+                    const SizedBox(height: 16),
+                    InkWell(
+                      onTap: () {
+                        Get.to(const TopUpLanding(showText: false));
+                      },
+                      child: Row(
+                        spacing: 10,
+                        children: <Widget>[
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(child: Icon(Icons.language, color: AppColors.green)),
+                          ),
+                          Text(
+                            AppString.language.tr,
+                            style: textTheme(
+                              context,
+                            ).displayMedium!.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    InkWell(
+                      onTap: () {
+                        Get.to(const TopUpLanding(showText: false));
+                      },
+                      child: Row(
+                        spacing: 10,
+                        children: <Widget>[
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(
+                              child: Icon(
+                                Icons.notifications_none_outlined,
+                                color: AppColors.green,
+                              ),
+                            ),
+                          ),
+
+                          Text(
+                            AppString.notification.tr,
+                              style: textTheme(
+                                context,
+                              ).displayMedium!.copyWith(fontWeight: FontWeight.bold)
+                          ),
+                          Spacer(),
+                          Obx(
+                            () => Switch(
+                              activeColor: AppColors.green,
+                              inactiveThumbColor: AppColors.primaryColor,
+                              value: isLanguageNotificationEnabled.value,
+                              activeTrackColor: AppColors.primaryColor,
+                              onChanged: (bool value) {
+                                print(value);
+                                isLanguageNotificationEnabled.value = value;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 36),
                     const Divider(),
-                    const SizedBox(width: 30),
+                    const SizedBox(width: 16),
                     ListTile(
                       onTap: () {
                         Get.to(PrivacyPage(heading: AppString.termsAndConditions.tr));
@@ -146,8 +217,8 @@ class InAppbar extends StatelessWidget {
       decoration: const BoxDecoration(
         color: AppColors.primaryColor,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(16),
-          bottomRight: Radius.circular(16),
+          bottomLeft: Radius.circular(12),
+          bottomRight: Radius.circular(12),
         ),
       ),
       child: SafeArea(
@@ -155,7 +226,7 @@ class InAppbar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             ListTile(
-              leading: const CircleAvatar(child: Icon(Icons.person)),
+              leading: const CircleAvatar(radius: 24, child: Icon(Icons.person, size: 48)),
               title: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -164,7 +235,7 @@ class InAppbar extends StatelessWidget {
                     AppString.helloGoodEvening,
                     style: textTheme(context).displayMedium!.copyWith(color: AppColors.white),
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 8),
                   Text(
                     "Abdul Karim",
                     style: textTheme(context).bodyMedium!.copyWith(color: AppColors.white),

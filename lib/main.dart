@@ -19,7 +19,7 @@ import 'package:untitled/views/screens/market/uc_payment_details.dart';
 import 'package:untitled/views/screens/topup/topup_dashboard.dart';
 import 'package:untitled/views/screens/topup/topup_landing.dart';
 import 'package:untitled/views/screens/topup/topup_number.dart';
-import 'package:untitled/views/screens/topup/topup_payment_details.dart';
+import 'package:untitled/views/screens/topup/payment_details.dart';
 
 import 'controller/top_up_country_search_controller.dart';
 

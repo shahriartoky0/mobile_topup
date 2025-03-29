@@ -44,7 +44,7 @@ class OrderCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTapCard,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal:  16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.blueAccent, width: 1),
           borderRadius: BorderRadius.circular(12),
@@ -55,12 +55,12 @@ class OrderCard extends StatelessWidget {
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 CachedImage(fit: BoxFit.contain, imageUrl: imageUrl, width: 70),
                 if (showMenuIcon)
                   IconButton(onPressed: () {}, icon: Icon(Icons.menu, color: Colors.grey.shade600))
                 else
-                  SizedBox.shrink(),
+                  const SizedBox.shrink(),
               ],
             ),
             // Replace with actual logo path

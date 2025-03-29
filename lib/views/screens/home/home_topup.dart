@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/utilities/app_colors.dart';
 import 'package:untitled/utilities/app_strings.dart';
+
+import '../../base/components/slide_animation.dart';
 import '../../base/widgets/order_card.dart';
 import '../../base/widgets/order_total.dart';
 import '../../base/widgets/schedule_topup.dart';
@@ -11,7 +14,10 @@ class HomeTopUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
-
+    // Show the ScheduleTopUp dialog when navigating to the page
+    Future.delayed(Duration.zero, () {
+      _showScheduleTopUpDialog(context);
+    });
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -50,7 +56,7 @@ class HomeTopUp extends StatelessWidget {
                         duration: '20 Days',
                       ),
                       SizedBox(height: 24),
-                      ScheduleTopUp(),
+                      // ScheduleTopUp(),
 
                       // Add any more widgets if needed
                     ],
@@ -84,6 +90,40 @@ class HomeTopUp extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  // Show the ScheduleTopUp dialog when navigating to the page
+  void _showScheduleTopUpDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: true, // Prevent dismissing by tapping outside
+      builder: (BuildContext context) {
+        return SlideInAnimation(
+          child: Dialog(
+            insetPadding: const EdgeInsets.symmetric(horizontal: 20),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: Get.back,
+                        icon: const Icon(Icons.clear, color: Colors.red),
+                      ),
+                    ],
+                  ),
+                  const ScheduleTopUp(),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

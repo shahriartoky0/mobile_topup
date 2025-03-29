@@ -90,6 +90,7 @@ class AppString {
   static const String howWouldYouLikeToPay = 'How Would You Like To Pay';
   static const String scheduleTopUp = 'Schedule Top-Up';
   static const String recentTopUp = 'Recent Top-Up';
+  static const String autoTopUp = 'Auto Top-Up';
   static const String packageAutoTopUpInfo =
       'This package will be auto top-up after your selected time.';
   static const String subTotal = 'Sub Total :';

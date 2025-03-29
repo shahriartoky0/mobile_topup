@@ -10,12 +10,19 @@ import 'package:untitled/views/base/widgets/textUnderlne.dart';
 import '../../base/components/custom_text_field.dart';
 import '../../base/widgets/container_text_field.dart';
 
-class HelpPage extends StatelessWidget {
+class HelpPage extends StatefulWidget {
+  @override
+  _HelpPageState createState() => _HelpPageState();
+}
+
+class _HelpPageState extends State<HelpPage> {
+  final PageController _pageController = PageController();
+  RxInt numberOp = 0.obs;
+
   @override
   Widget build(BuildContext context) {
     final TextEditingController nameTEController = TextEditingController();
 
-    RxInt numberOp = 0.obs;
     return Scaffold(
       floatingActionButton: Container(
         width: double.infinity,
@@ -28,9 +35,8 @@ class HelpPage extends StatelessWidget {
             Row(
               spacing: 5,
               mainAxisAlignment: MainAxisAlignment.center,
-
               children: <Widget>[
-                Image.asset(AppImages.whatsappGif,scale: 2,),
+                Image.asset(AppImages.whatsappGif, scale: 2),
                 Text(AppString.customerService.tr),
               ],
             ),
@@ -56,7 +62,13 @@ class HelpPage extends StatelessWidget {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    Text(AppString.faq.tr, style: textTheme(context).headlineMedium),
+                    GestureDetector(
+                      onTap: () {
+                        _pageController.jumpToPage(0); // Switch to FAQ page
+                      },
+                      child: Text(AppString.faq.tr, style: textTheme(context).headlineMedium),
+                    ),
+
                     Obx(
                       () =>
                           numberOp.value == 0
@@ -69,7 +81,13 @@ class HelpPage extends StatelessWidget {
                 // Adds space between FAQ and Contact Us
                 Column(
                   children: <Widget>[
-                    Text(AppString.contactUs.tr, style: textTheme(context).headlineMedium),
+                    GestureDetector(
+                      onTap: () {
+                        _pageController.jumpToPage(1);
+                      },
+                      child: Text(AppString.contactUs.tr, style: textTheme(context).headlineMedium),
+                    ),
+
                     Obx(
                       () =>
                           numberOp.value == 1
@@ -82,6 +100,7 @@ class HelpPage extends StatelessWidget {
             ),
             Expanded(
               child: PageView.builder(
+                controller: _pageController,
                 itemCount: 2, // Number of pages you want to show
                 onPageChanged: (int index) {
                   numberOp.value = index; // Update the underline state when the page changes
@@ -91,7 +110,6 @@ class HelpPage extends StatelessWidget {
                       ? const FAQPage() // Replace with your actual FAQ page widget
                       : ListView(
                         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 18),
-
                         physics: const ClampingScrollPhysics(),
                         children: <Widget>[
                           const SizedBox(height: 14),
@@ -99,7 +117,6 @@ class HelpPage extends StatelessWidget {
                             containerChild: MyTextFormFieldWithIcon(
                               formHintText: AppString.firstName,
                               keyBoardType: TextInputType.phone,
-
                               controller: nameTEController,
                               validator: (String? value) {
                                 if (value?.isEmpty ?? true) {
@@ -117,7 +134,6 @@ class HelpPage extends StatelessWidget {
                             containerChild: MyTextFormFieldWithIcon(
                               formHintText: AppString.lastName,
                               keyBoardType: TextInputType.phone,
-
                               controller: nameTEController,
                               validator: (String? value) {
                                 if (value?.isEmpty ?? true) {
@@ -135,7 +151,6 @@ class HelpPage extends StatelessWidget {
                             containerChild: MyTextFormFieldWithIcon(
                               formHintText: AppString.email,
                               keyBoardType: TextInputType.phone,
-
                               controller: nameTEController,
                               validator: (String? value) {
                                 if (value?.isEmpty ?? true) {
@@ -153,7 +168,6 @@ class HelpPage extends StatelessWidget {
                             containerChild: MyTextFormFieldWithIcon(
                               formHintText: AppString.subject,
                               keyBoardType: TextInputType.phone,
-
                               controller: nameTEController,
                               validator: (String? value) {
                                 if (value?.isEmpty ?? true) {
@@ -184,7 +198,6 @@ class HelpPage extends StatelessWidget {
                             child: ElevatedButton(
                               onPressed: () {
                                 /// TODO: OTP logic
-                                // // if (_formKey.currentState!.validate()) {}
                               },
                               child: Text(
                                 AppString.send.tr,

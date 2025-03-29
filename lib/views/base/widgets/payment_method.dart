@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:untitled/views/base/widgets/payment_option.dart';
 
 import '../../../utilities/app_strings.dart';
-import '../../screens/topup/topup_payment_details.dart';
+import '../../screens/topup/payment_details.dart';
 
 class PaymentMethod extends StatefulWidget {
   const PaymentMethod({super.key});

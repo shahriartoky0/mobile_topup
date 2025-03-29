@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/views/base/components/custom_pin_code_field.dart';
 import 'package:untitled/views/screens/auth/reset_password.dart';
-import 'package:untitled/views/screens/topup/topup_payment_details.dart';
+import 'package:untitled/views/screens/topup/payment_details.dart';
 
 class OtpLogin extends StatefulWidget {
   const OtpLogin({super.key});

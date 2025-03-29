@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_theme.dart';
 import 'package:untitled/views/base/components/cached_image.dart';
-import 'package:untitled/views/screens/topup/topup_payment_details.dart';
+import 'package:untitled/views/screens/topup/payment_details.dart';
 
 import '../../../controller/subscription_tab_controller.dart';
 import '../../../utilities/app_colors.dart';

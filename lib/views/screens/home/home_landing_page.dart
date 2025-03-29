@@ -25,7 +25,7 @@ class HomeLandingPage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Container(
-                    margin: const EdgeInsets.all(12),
+                    margin: const EdgeInsets.all(16),
                     child: Stack(
                       children: <Widget>[
                         ClipRRect(
@@ -60,20 +60,39 @@ class HomeLandingPage extends StatelessWidget {
                                 ).headlineMedium!.copyWith(color: AppColors.white),
                               ),
                               const SizedBox(height: 12),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.primaryColor,
-                                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
+                              Container(
+                                padding: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 2,
+                                      spreadRadius: 1,
+                                      color: AppColors.green,
+                                    ),
+                                  ],
+                                  color: AppColors.primaryColor,
+                                  borderRadius: BorderRadius.circular(24),
+                                  border: Border.all(color: AppColors.green),
                                 ),
-                                onPressed: () {
-                                  // if (_formKey.currentState!.validate()) {}
-                                },
-
                                 child: Text(
                                   AppString.topUp.tr,
                                   style: Theme.of(context).textTheme.labelMedium,
                                 ),
                               ),
+                              // ElevatedButton(
+                              //   style: ElevatedButton.styleFrom(
+                              //     backgroundColor: AppColors.primaryColor,
+                              //     padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 24),
+                              //   ),
+                              //   onPressed: () {
+                              //     // if (_formKey.currentState!.validate()) {}
+                              //   },
+                              //
+                              //   child: Text(
+                              //     AppString.topUp.tr,
+                              //     style: Theme.of(context).textTheme.labelMedium,
+                              //   ),
+                              // ),
                             ],
                           ),
                         ),
@@ -86,66 +105,73 @@ class HomeLandingPage extends StatelessWidget {
               /// ========================== the top Up starts here =================== >
               const SizedBox(height: 12),
               Obx(
-                () => Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    ElevatedButton(
-                      onPressed: () {
-                        homePageController.updateIndex(0);
-                      },
-                      // Default button text is 'Confirm'
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 24),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          side: const BorderSide(color: AppColors.primaryColor),
-                        ),
-                        backgroundColor:
-                            homePageController.selectedIndex.value == 0
-                                ? AppColors.primaryColor
-                                : AppColors.white,
-                      ),
-                      child: Text(
-                        AppString.recentTopUp,
-                        style: textTheme(context).labelMedium!.copyWith(
-                          fontSize: 14,
-                          color:
-                              homePageController.selectedIndex.value == 0
-                                  ? AppColors.green
-                                  : AppColors.primaryColor,
-                        ),
-                      ),
-                    ),
+                () => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
 
-                    ElevatedButton(
-                      onPressed: () {
-                        homePageController.updateIndex(1);
-                      },
-                      // Default button text is 'Confirm'
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(vertical: 9, horizontal: 24),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          side: const BorderSide(color: AppColors.primaryColor),
-                        ),
-                        backgroundColor:
-                            homePageController.selectedIndex.value == 1
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween, // Add space between the buttons
+                    children: <Widget>[
+                      // First Button
+                      InkWell(
+                        onTap: () {
+                          homePageController.updateIndex(0);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 9),
+                          width: MediaQuery.of(context).size.width * 0.45, // Takes 45% of available width
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: AppColors.primaryColor),
+                            color: homePageController.selectedIndex.value == 0
                                 ? AppColors.primaryColor
                                 : AppColors.white,
-                      ),
-                      child: Text(
-                        AppString.scheduleTopUp,
-                        style: textTheme(context).labelMedium!.copyWith(
-                          fontSize: 14,
-                          color:
-                              homePageController.selectedIndex.value == 1
-                                  ? AppColors.green
-                                  : AppColors.primaryColor,
+                          ),
+                          child: Center(
+                            child: Text(
+                              AppString.recentTopUp.tr,
+                              style: textTheme(context).labelMedium!.copyWith(
+                                fontSize: 14,
+                                color: homePageController.selectedIndex.value == 0
+                                    ? AppColors.green
+                                    : AppColors.primaryColor,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+
+                      // Second Button
+                      InkWell(
+                        onTap: () {
+                          homePageController.updateIndex(1);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(vertical: 9),
+                          width: MediaQuery.of(context).size.width * 0.45, // Takes 45% of available width
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: AppColors.primaryColor),
+                            color: homePageController.selectedIndex.value == 1
+                                ? AppColors.primaryColor
+                                : AppColors.white,
+                          ),
+                          child: Center(
+                            child: Text(
+                              AppString.autoTopUp.tr,
+                              style: textTheme(context).labelMedium!.copyWith(
+                                fontSize: 14,
+                                color: homePageController.selectedIndex.value == 1
+                                    ? AppColors.green
+                                    : AppColors.primaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+
               ),
               const SizedBox(height: 24),
 
@@ -240,6 +266,7 @@ class HomeLandingPage extends StatelessWidget {
       ),
     );
   }
+
 }
 
 class HomePageController extends GetxController {
@@ -249,5 +276,3 @@ class HomePageController extends GetxController {
     selectedIndex.value = index;
   }
 }
-
-

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_strings.dart';
 import 'package:untitled/views/screens/mainbottom_nav.dart';
+import '../../base/components/slide_animation.dart';
 import '../../base/widgets/order_card.dart';
 import '../../base/widgets/order_total.dart';
 import '../../base/widgets/payment_method.dart';
@@ -12,14 +13,18 @@ class PaymentDetailsPage extends StatelessWidget {
   final bool fromSignIn;
   final bool fromLoginOTP;
 
-  const PaymentDetailsPage({super.key, this.fromSignIn = false,   this.fromLoginOTP = false});
+  const PaymentDetailsPage({super.key, this.fromSignIn = false, this.fromLoginOTP = false});
 
   @override
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
 
+    // Show the ScheduleTopUp dialog when navigating to the page
+    Future.delayed(Duration.zero, () {
+      _showScheduleTopUpDialog(context);
+    });
+
     return Scaffold(
-      // bottomNavigationBar: OrderTotal(showButton: true, buttonText: AppString.confirm.tr, onPressed: () {}),
       body: SafeArea(
         child: ListView(
           children: <Widget>[
@@ -33,7 +38,8 @@ class PaymentDetailsPage extends StatelessWidget {
                     if (fromSignIn) {
                       Get.offAll(const MainBottomNavScreen());
                       return;
-                    } if (fromLoginOTP) {
+                    }
+                    if (fromLoginOTP) {
                       Get.offAll(const MainBottomNavScreen());
                       return;
                     }
@@ -91,6 +97,40 @@ class PaymentDetailsPage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  // Show the ScheduleTopUp dialog when navigating to the page
+  void _showScheduleTopUpDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: true, // Prevent dismissing by tapping outside
+      builder: (BuildContext context) {
+        return SlideInAnimation(
+          child: Dialog(
+            insetPadding: const EdgeInsets.symmetric(horizontal: 20),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: Get.back,
+                        icon: const Icon(Icons.clear, color: Colors.red),
+                      ),
+                    ],
+                  ),
+                  const ScheduleTopUp(),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

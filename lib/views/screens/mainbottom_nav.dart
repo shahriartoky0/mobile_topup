@@ -1,3 +1,4 @@
+import 'package:country/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_colors.dart';
@@ -33,7 +34,6 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     AssetSvgImage(assetName: AppIcons.appNavHistory),
     AssetSvgImage(assetName: AppIcons.appNavMarket),
     AssetSvgImage(assetName: AppIcons.appNavProfile),
-
   ];
 
   @override
@@ -47,7 +47,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     return Scaffold(
       extendBody: true,
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(left: 20, bottom: 0),
+        padding: const EdgeInsets.only(left: 25, bottom: 0),
         child: FloatingActionButton(
           onPressed: () {
             Get.to(const TopUpLanding());
@@ -74,61 +74,70 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
         },
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.only(bottom: 12, left: 12,right: 12),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24),
-          // border: Border(top: BorderSide(color: AppColors.green, width: 2)),
-        ),
+        margin: const EdgeInsets.only(bottom: 12, left: 12, right: 12),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
           child: BottomAppBar(
-            padding: const EdgeInsets.only(top: 3),
-            notchMargin: -0.1,
+            padding: const EdgeInsets.only(top: 1),
+            notchMargin: -.5,
             shape: const CircularNotchedRectangle(),
             // This creates the notch for the FAB
             color: AppColors.green,
             elevation: 10,
-            child: BottomAppBar(
-              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(24),
 
-              notchMargin: 0,
-              shape: const CircularNotchedRectangle(),
-              color: AppColors.appBarColor,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                // spacing: 10,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: List.generate(_icons.length, (int index) {
-                  return GestureDetector(
-                    onTap: () {
-                      _pageController.jumpToPage(index);
-                      setState(() {
-                        _selectedIndex = index;
-                      });
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(10),
-                       child: _icons[index],
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        boxShadow:
-                            _selectedIndex == index
-                                ? <BoxShadow>[
-                                  BoxShadow(
-                                    color: AppColors.primaryColor.withValues(alpha: 0.2),
-                                    // Shadow color
-                                    offset: Offset(0, 4),
-                                    // Shadow position
-                                    blurRadius: 8, // Blur radius
-                                  ),
-                                ]
-                                : <BoxShadow>[],
-                        shape: BoxShape.circle, // To keep the shape circular (if you want)
-                      ),
-                    ),
-                  );
-                }),
+              child: BottomAppBar(
+                padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 0),
+                notchMargin: 0,
+                shape: const CircularNotchedRectangle(),
+                color: AppColors.appBarColor,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: List<GestureDetector>.generate(_icons.length, (int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          _pageController.jumpToPage(index);
+                          setState(() {
+                            _selectedIndex = index;
+                          });
+                        },
+                        child: Row(
+                          children: [
+                            if (index == 2) SizedBox(width: 76),
+
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              width: 50,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                boxShadow:
+                                    _selectedIndex == index
+                                        ? <BoxShadow>[
+                                          BoxShadow(
+                                            color: AppColors.primaryColor.withValues(alpha: 0.2),
+                                            // Shadow color
+                                            offset: const Offset(0, 4),
+                                            // Shadow position
+                                            blurRadius: 8, // Blur radius
+                                          ),
+                                        ]
+                                        : <BoxShadow>[],
+                                shape: BoxShape.circle,
+
+                                // To keep the shape circular (if you want)
+                              ),
+                              child: _icons[index],
+                            ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ),
+                ),
               ),
             ),
           ),

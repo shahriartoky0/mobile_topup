@@ -12,7 +12,7 @@ import 'package:untitled/views/screens/mainbottom_nav.dart';
 import '../../../utilities/app_colors.dart';
 import '../../base/components/custom_text_field.dart';
 import '../../base/widgets/container_text_field.dart';
-import '../topup/topup_payment_details.dart';
+import '../topup/payment_details.dart';
 
 class SignInPage extends StatefulWidget {
   SignInPage({super.key});

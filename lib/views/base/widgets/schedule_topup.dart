@@ -46,11 +46,12 @@ class TopUpOption extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
+          border: Border.all(color: AppColors.green),
           boxShadow: [const BoxShadow(offset: Offset(0, 4), color: AppColors.green)],
-          color: AppColors.primaryColor,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Text(label, style: textTheme.labelMedium),
+        child: Text(label, style: textTheme.labelMedium!.copyWith(color: AppColors.primaryColor)),
       ),
     );
   }

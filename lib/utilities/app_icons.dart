@@ -85,5 +85,6 @@ class AppIcons{
   static String appNavHistory="$baseUrl/app_nav_history.svg";
   static String appNavMarket="$baseUrl/app_nav_market.svg";
   static String appNavProfile="$baseUrl/app_nav_profile.svg";
+  static String appNetworkIcon="$baseUrl/app_network_icon.svg";
 
 }

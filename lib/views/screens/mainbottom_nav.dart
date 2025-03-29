@@ -52,7 +52,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
           onPressed: () {
             Get.to(const TopUpLanding());
           },
-          child: const Icon(Icons.cell_tower_sharp, color: AppColors.green),
+          child: AssetSvgImage(assetName: AppIcons.appNetworkIcon, width: 20,height: 20,),
           elevation: 0,
           backgroundColor: AppColors.primaryColor,
           shape: RoundedRectangleBorder(

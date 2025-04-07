@@ -23,7 +23,7 @@ class HomeOnBoardingPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Text(
               AppString.handcraftedInAfghanistan,
               style: appTextTheme.headlineMedium!.copyWith(color: AppColors.white),
@@ -40,7 +40,7 @@ class HomeOnBoardingPage extends StatelessWidget {
             // Esra Logo (Green text)
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [
+              children: <Widget>[
                 IconButton(
                   onPressed: () {
                     Get.offAll(const MainBottomNavScreen());
@@ -59,7 +59,7 @@ class HomeOnBoardingPage extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       Image.asset(AppImages.onboardingImage),
                       const SizedBox(height: 16),
                       Text(

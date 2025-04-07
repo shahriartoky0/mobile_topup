@@ -95,31 +95,35 @@ class HomeTopUp extends StatelessWidget {
 
   // Show the ScheduleTopUp dialog when navigating to the page
   void _showScheduleTopUpDialog(BuildContext context) {
-    showDialog(
+    showModalBottomSheet(
       context: context,
-      barrierDismissible: true, // Prevent dismissing by tapping outside
+      isScrollControlled: true, // Allows the modal to be height-responsive
+      backgroundColor: Colors.transparent, // Make the background transparent to match the dialog's look
       builder: (BuildContext context) {
         return SlideInAnimation(
-          child: Dialog(
-            insetPadding: const EdgeInsets.symmetric(horizontal: 20),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      IconButton(
-                        onPressed: Get.back,
-                        icon: const Icon(Icons.clear, color: Colors.red),
-                      ),
-                    ],
-                  ),
-                  const ScheduleTopUp(),
-                ],
+          child: Container(
+            padding: const EdgeInsets.all(16.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: Get.back,
+                      icon: const Icon(Icons.clear, color: Colors.red),
+                    ),
+                  ],
+                ),
+                const ScheduleTopUp(), // Dialog content
+              ],
             ),
           ),
         );

@@ -75,6 +75,7 @@ class AppString {
   //============================TopUp  String=======================================>
   static const String whereAreYouSendingTo = 'Where are you sending to?';
   static const String allCountries = 'All countries';
+  static const String popularCountries = 'Popular countries';
   static const String searchCountry = 'Search Country';
   static const String contacts = 'Contacts';
   static const String pleaseEnterPhoneNumber = 'Please enter the phone number';

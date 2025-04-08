@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:country/src/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/utilities/app_images.dart';
@@ -23,14 +24,14 @@ class MarketCountry extends StatelessWidget {
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
-            children: [
+            children: <Widget>[
               Image.asset(AppImages.giftImage),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
 
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Center(
                       child: Text(
                         AppString.groceryStores.tr,
@@ -64,7 +65,7 @@ class MarketCountry extends StatelessWidget {
                           }
                           return null;
                         },
-                        onChanged: (value) {
+                        onChanged: (String value) {
                           // Update search results via the controller.
                           controller.updateSearch(value);
                         },
@@ -79,12 +80,12 @@ class MarketCountry extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: controller.filteredCountries.length,
                         separatorBuilder:
-                            (context, index) => Divider(
+                            (BuildContext context, int index) => Divider(
                               color: AppColors.primaryColor.withValues(alpha: 0.2),
                               thickness: 1,
                             ),
-                        itemBuilder: (context, index) {
-                          final country = controller.filteredCountries[index];
+                        itemBuilder: (BuildContext context, int index) {
+                          final Country country = controller.filteredCountries[index];
                           return InkWell(
                             onTap: () {
                               controller.selectCountry(index);
@@ -94,7 +95,7 @@ class MarketCountry extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                               child: Row(
-                                children: [
+                                children: <Widget>[
                                   Obx(() {
                                     return Container(
                                       width: 40,
@@ -103,7 +104,7 @@ class MarketCountry extends StatelessWidget {
                                         shape: BoxShape.circle,
                                         color: AppColors.white,
                                         border: Border.all(color: AppColors.primaryColor, width: 2),
-                                        boxShadow: [
+                                        boxShadow: <BoxShadow>[
                                           if (controller.selectedIndex.value == index)
                                             BoxShadow(
                                               offset: const Offset(2, 2),

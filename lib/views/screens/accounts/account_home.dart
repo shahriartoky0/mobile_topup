@@ -37,7 +37,7 @@ class AccountHome extends StatelessWidget {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryColor),
                         onPressed: () {
-                          Get.to(HelpPage());                          // if (_formKey.currentState!.validate()) {}
+                          Get.to(HelpPage()); // if (_formKey.currentState!.validate()) {}
                         },
 
                         child: Text(
@@ -93,14 +93,46 @@ class AccountHome extends StatelessWidget {
                           Container(
                             width: 50,
                             height: 50,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: AppColors.primaryColor,
                               shape: BoxShape.circle,
                             ),
-                            child: Center(child: Icon(Icons.language, color: AppColors.green)),
+                            child: const Center(child: Icon(Icons.language, color: AppColors.green)),
                           ),
                           Text(
                             AppString.language.tr,
+                            style: textTheme(
+                              context,
+                            ).displayMedium!.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
+                    /// Schedule TopUp
+                    InkWell(
+                      onTap: () {
+                        /// Schedule topup page
+                      },
+                      child: Row(
+                        spacing: 10,
+                        children: <Widget>[
+                          Container(
+                            width: 50,
+                            height: 50,
+                            decoration: const BoxDecoration(
+                              color: AppColors.primaryColor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Center(
+                              child: Icon(
+                                Icons.cell_tower_outlined,
+                                color: AppColors.green,
+                              ),
+                            ),
+                          ),                          Text(
+                            AppString.scheduleTopUp.tr,
                             style: textTheme(
                               context,
                             ).displayMedium!.copyWith(fontWeight: FontWeight.bold),
@@ -119,11 +151,11 @@ class AccountHome extends StatelessWidget {
                           Container(
                             width: 50,
                             height: 50,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: AppColors.primaryColor,
                               shape: BoxShape.circle,
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Icon(
                                 Icons.notifications_none_outlined,
                                 color: AppColors.green,
@@ -133,11 +165,11 @@ class AccountHome extends StatelessWidget {
 
                           Text(
                             AppString.notification.tr,
-                              style: textTheme(
-                                context,
-                              ).displayMedium!.copyWith(fontWeight: FontWeight.bold)
+                            style: textTheme(
+                              context,
+                            ).displayMedium!.copyWith(fontWeight: FontWeight.bold),
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Obx(
                             () => Switch(
                               activeColor: AppColors.green,

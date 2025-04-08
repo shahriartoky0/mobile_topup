@@ -80,6 +80,50 @@ class TopUpLanding extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
+
+                    /// Popular Countries
+                    Text(AppString.popularCountries.tr, style: textTheme(context).headlineMedium),
+                    const SizedBox(height: 8),
+                    Row(spacing: 20,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              controller.allCountries[2].flagEmoji,
+                              style: const TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              controller.allCountries[2].alpha3,
+                              style: textTheme(context).headlineMedium,
+                            ),
+                          ],
+                        ), Column(
+                          children: <Widget>[
+                            Text(
+                              controller.allCountries[177].flagEmoji,
+                              style: const TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              controller.allCountries[177].alpha3,
+                              style: textTheme(context).headlineMedium,
+                            ),
+                          ],
+                        ), Column(
+                          children: <Widget>[
+                            Text(
+                              controller.allCountries[192].flagEmoji,
+                              style: const TextStyle(fontSize: 25),
+                            ),
+                            Text(
+                              controller.allCountries[192].alpha3,
+                              style: textTheme(context).headlineMedium,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
                     Text(AppString.allCountries.tr, style: textTheme(context).headlineMedium),
                     // Reactive list of filtered countries.
                     Obx(
@@ -114,16 +158,14 @@ class TopUpLanding extends StatelessWidget {
                                         color: AppColors.white,
                                         border: Border.all(color: AppColors.primaryColor, width: 2),
                                         boxShadow: <BoxShadow>[
-                                          controller.selectedIndex.value == index
-                                              ? BoxShadow(
+                                          if (controller.selectedIndex.value == index) BoxShadow(
                                                 offset: const Offset(2, 2),
                                                 spreadRadius: 2,
                                                 blurRadius: 2,
                                                 color: AppColors.primaryColor.withValues(
                                                   alpha: 0.5,
                                                 ),
-                                              )
-                                              : const BoxShadow(color: Colors.transparent),
+                                              ) else const BoxShadow(color: Colors.transparent),
                                         ],
                                       ),
 
@@ -139,7 +181,7 @@ class TopUpLanding extends StatelessWidget {
                                   // Display the country's short name.
                                   Expanded(
                                     child: Text(
-                                      country.isoShortName,
+                                      '${country.isoShortName} ${index}',
                                       style: const TextStyle(
                                         fontSize: 16,
                                         overflow: TextOverflow.ellipsis,

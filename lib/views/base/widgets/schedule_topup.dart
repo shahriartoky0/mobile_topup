@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/utilities/app_theme.dart';
 
 import '../../../utilities/app_colors.dart';
 import '../../../utilities/app_strings.dart';
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../utilities/app_colors.dart';
-import '../../../utilities/app_strings.dart';
 
 class ScheduleTopUp extends StatelessWidget {
   const ScheduleTopUp({super.key});
@@ -58,13 +55,16 @@ class ScheduleTopUp extends StatelessWidget {
           spacing: 20,
           children: <Widget>[
             OutlinedButton(
+              style: OutlinedButton.styleFrom(foregroundColor: Colors.red),
+
               onPressed: () {
                 // Cancel action, close the bottom sheet
                 Get.back();
               },
-              child: Text(AppString.cancel.tr),
+              child: Text(AppString.cancel.tr,style: textTheme(context).displayMedium?.copyWith(color: AppColors.red),),
             ),
             OutlinedButton(
+              style: OutlinedButton.styleFrom(backgroundColor: AppColors.green,),
               onPressed: () {
                 // Confirm action, print the selected day
                 print("Selected Package: ${controller.selectedDay.value}");
@@ -97,7 +97,7 @@ class TopUpOption extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(color: isSelected ? Colors.green : Colors.grey),
           boxShadow: [BoxShadow(offset: const Offset(0, 4), color: isSelected ? Colors.green : Colors.grey)],
-          color: isSelected ? Colors.green.withOpacity(0.1) : Colors.white,
+          color: isSelected ? Colors.green.withValues(alpha:  0.1) : Colors.white,
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
@@ -113,7 +113,7 @@ class TopUpOption extends StatelessWidget {
 
 class ScheduleTopUpController extends GetxController {
   // Observable variable to track the selected package
-  RxString selectedDay = ''.obs;
+  RxString selectedDay = '30 Day'.obs;
 
   // Method to update the selected package
   void selectPackage(String day) {

@@ -46,12 +46,12 @@ class PaymentDetailsPage extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0 ,vertical: 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(AppString.yourOrder.tr),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   const OrderCard(
                     imageUrl:
                         "https://imgs.search.brave.com/zsMQceD5H5ajD95FdwVitlycR9K7rBjaxiMCS-EBA1A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9nby53aW5lL2Ev/bG9nby9BaXJ0ZWxf/VWdhbmRhL0FpcnRl/bF9VZ2FuZGEtTG9n/by53aW5lLnN2Zw",
@@ -62,11 +62,11 @@ class PaymentDetailsPage extends StatelessWidget {
                     price: '200',
                     duration: '20 Days',
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   const PromoCode(),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   const PaymentMethod(),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 16),
                   OrderTotal(
                     showButton: true,
                     buttonText: 'Confirm',

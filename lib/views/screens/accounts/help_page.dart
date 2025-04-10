@@ -32,15 +32,16 @@ class _HelpPageState extends State<HelpPage> {
           children: <Widget>[
             const Spacer(),
             Text(AppString.ifYouHaveAnyQuestion.tr, style: textTheme(context).displayMedium),
+            SizedBox(height: 4,),
             Row(
               spacing: 5,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset(AppImages.whatsappGif, scale: 2),
+                Image.asset(AppImages.whatsappGif, width: 22, height: 22,),
                 Text(AppString.customerService.tr),
               ],
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 12),
           ],
         ),
       ),

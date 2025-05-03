@@ -114,6 +114,8 @@ class AccountHome extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         /// Schedule topup page
+                        Get.to(const TopUpLanding(showText: false));
+
                       },
                       child: Row(
                         spacing: 10,
@@ -143,7 +145,7 @@ class AccountHome extends StatelessWidget {
                     const SizedBox(height: 16),
                     InkWell(
                       onTap: () {
-                        Get.to(const TopUpLanding(showText: false));
+                        // Get.to(const TopUpLanding(showText: false));
                       },
                       child: Row(
                         spacing: 10,

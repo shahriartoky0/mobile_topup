@@ -181,7 +181,7 @@ class TopUpLanding extends StatelessWidget {
                                   // Display the country's short name.
                                   Expanded(
                                     child: Text(
-                                      '${country.isoShortName} ${index}',
+                                      '${country.isoShortName}',
                                       style: const TextStyle(
                                         fontSize: 16,
                                         overflow: TextOverflow.ellipsis,
